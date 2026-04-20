@@ -38,9 +38,9 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;align-items:cen
 .work-item{border-bottom:1px solid var(--line);cursor:pointer}
 .work-image{width:100%;overflow:hidden;background:#e8e5e0}
 .work-img-anchor{display:block;width:100%;overflow:hidden}
-.work-image img{width:100%;aspect-ratio:16/10;object-fit:cover;display:block;transition:transform .6s cubic-bezier(.4,0,.2,1)}
+.work-image img{width:100%;aspect-ratio:21/9;object-fit:cover;display:block;transition:transform .6s cubic-bezier(.4,0,.2,1);max-height:50vh}
 .work-item:hover .work-img-anchor{display:block;width:100%;overflow:hidden}
-.work-image img{transform:scale(1.015)}
+.work-image img{width:100%;aspect-ratio:21/9;object-fit:cover;display:block;transition:transform .6s cubic-bezier(.4,0,.2,1);max-height:50vh}
 .work-meta{padding:1.1rem 2.5rem 1.6rem;display:grid;grid-template-columns:1fr auto;gap:1rem;align-items:start}
 .work-title{font-size:clamp(17px,2.2vw,26px);font-weight:400;color:var(--ink);margin-bottom:.4rem;letter-spacing:-.01em}
 .work-details{font-size:12px;color:var(--muted);line-height:2;font-weight:300}
@@ -137,6 +137,7 @@ footer{padding:1.5rem 2.5rem;border-top:1px solid var(--line);display:flex;justi
 
 /* MOBILE */
 @media(max-width:768px){
+  .work-image img{aspect-ratio:16/9;max-height:none}
   nav{padding:.9rem 1.25rem}
   .nav-links{gap:1rem}
   .nav-links li:nth-child(3){display:none}
@@ -154,6 +155,9 @@ footer{padding:1.5rem 2.5rem;border-top:1px solid var(--line);display:flex;justi
   .about-grid,.contact-grid{grid-template-columns:1fr;gap:2.5rem}
   footer{flex-direction:column;gap:.75rem;padding:1.25rem;text-align:center}
 }
+
+.aw-row a{color:var(--ink);text-decoration:none;transition:opacity .15s}
+.aw-row a:hover{opacity:.55}
 </style>
 </head>
 <body>
@@ -211,7 +215,12 @@ footer{padding:1.5rem 2.5rem;border-top:1px solid var(--line);display:flex;justi
         </div>
         <div class="info-block">
           <span class="info-lbl">Awards</span>
-          <div class="aw-row"><span>Master's Thesis Excellence Award — KIT</span><span>2026</span></div><div class="aw-row"><span>Tokyo Architecture Collection — Finalist, Jury Award</span><span>2026</span></div><div class="aw-row"><span>Architizer A+Awards — Popular Choice winner</span><span>2025</span></div><div class="aw-row"><span>JIA Tokai Branch Design Competition — 2nd prize</span><span>2024</span></div><div class="aw-row"><span>Scandinavia-Japan Sasakawa Foundation — Selection</span><span>2023</span></div><div class="aw-row"><span>Industry-University Forum — 1st prize</span><span>2022</span></div><div class="aw-row"><span>SDL 2022 Public Vote — Honorable mention</span><span>2022</span></div><div class="aw-row"><span>Graduation Design Excellence Award — KIT</span><span>2022</span></div>
+          <div class="aw-row"><span><a href="https://www.instagram.com/kit_graduate/" target="_blank" rel="noopener">Master's Thesis Excellence Award — KIT</a></span><span>2026</span></div>
+<div class="aw-row"><span><a href="https://tokore.site/%e3%80%90%e7%b5%90%e6%9e%9c%e7%99%ba%e8%a1%a8%e3%80%91%e3%83%88%e3%82%a6%e3%82%ad%e3%83%a7%e3%82%a6%e5%bb%ba%e7%af%89%e3%82%b3%e3%83%ac%e3%82%af%e3%82%b7%e3%83%a7%e3%83%b32026%e3%80%90%e5%85%a8/" target="_blank" rel="noopener">Tokyo Architecture Collection — Finalist, Jury Award</a></span><span>2026</span></div>
+<div class="aw-row"><span><a href="https://winners.architizer.com/2025/Typology/cultural-13/pavilions-5/kide/" target="_blank" rel="noopener">Architizer A+Awards — Popular Choice winner</a></span><span>2025</span></div>
+<div class="aw-row"><span><a href="http://www.jia-tokai.org/competition/40.htm" target="_blank" rel="noopener">JIA Tokai Branch Design Competition — 2nd prize</a></span><span>2024</span></div>
+<div class="aw-row"><span><a href="https://sjsf.se/local-pages/japan/%e5%8a%a9%e6%88%90%e4%ba%a4%e4%bb%98%e5%bc%8f%e3%83%bb%e6%87%87%e8%ab%87%e4%bc%9a/" target="_blank" rel="noopener">Scandinavia-Japan Sasakawa Foundation — Selection</a></span><span>2023</span></div>
+<div class="aw-row"><span><a href="#proj-bird" target="_self" rel="noopener">Graduation Design Excellence Award — KIT</a></span><span>2022</span></div>
         </div>
       </div>
     </div>
@@ -226,13 +235,13 @@ footer{padding:1.5rem 2.5rem;border-top:1px solid var(--line);display:flex;justi
         +81-80-3674-0598<br>
         Kyoto, Japan
       </div>
-      <form class="cform" onsubmit="return false">
+      <form class="cform" id="contact-form" action="https://formspree.io/f/xovdqzzj" method="POST">
         <div class="form-row">
-          <input type="text" placeholder="Name">
-          <input type="text" placeholder="Company (optional)">
+          <input type="text" name="name" placeholder="Name" required>
+          <input type="text" name="company" placeholder="Company (optional)">
         </div>
-        <input type="email" placeholder="Email">
-        <textarea placeholder="Message"></textarea>
+        <input type="email" name="email" placeholder="Email" required>
+        <textarea name="message" placeholder="Message" required></textarea>
         <button type="submit" class="btn-send">Send</button>
       </form>
     </div>
@@ -467,6 +476,17 @@ function initLB(){
 }
 function closeLB(){ document.getElementById('lb').classList.remove('open'); }
 document.addEventListener('keydown',function(e){ if(e.key==='Escape') closeLB(); });
+// Contact form AJAX
+var cf=document.getElementById('contact-form');
+if(cf){
+  cf.addEventListener('submit',function(e){
+    e.preventDefault();
+    fetch(cf.action,{method:'POST',body:new FormData(cf),headers:{'Accept':'application/json'}})
+      .then(function(r){
+        if(r.ok){ cf.reset(); var ok=document.getElementById('form-ok'); if(ok) ok.style.display='block'; }
+      }).catch(function(){});
+  });
+}
 /* Fade */
 const obs=new IntersectionObserver(function(entries){
   entries.forEach(function(e){ if(e.isIntersecting){e.target.classList.add('in');obs.unobserve(e.target);} });
