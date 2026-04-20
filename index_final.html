@@ -130,7 +130,7 @@ footer{padding:1.5rem 2.5rem;border-top:1px solid var(--line);display:flex;justi
 /* TABLET */
 /* Desktop: limit image display size */
 @media(min-width:769px){
-  .work-item{padding:0 10%}
+  .work-item{padding:0 20% 0 0}
   .work-image{border-radius:2px}
 }
 @media(max-width:1024px) and (min-width:769px){
@@ -169,12 +169,12 @@ footer{padding:1.5rem 2.5rem;border-top:1px solid var(--line);display:flex;justi
 
 <a id="top"></a>
 <nav>
-  <a class="nav-name" href="#top">Kota Kawakami</a>
+  <a class="nav-name" href="javascript:void(0)" onclick="goIdx()">Kota Kawakami</a>
   <div class="nav-right">
     <ul class="nav-links">
-      <li><a href="#top">Works</a></li>
-      <li><a href="#about">About</a></li>
-      <li><a href="#contact">Contact</a></li>
+      <li><a href="javascript:void(0)" onclick="goIdx()">Works</a></li>
+      <li><a href="javascript:void(0)" onclick="goSec('about')">About</a></li>
+      <li><a href="javascript:void(0)" onclick="goSec('contact')">Contact</a></li>
     </ul>
   </div>
 </nav>
@@ -188,15 +188,15 @@ footer{padding:1.5rem 2.5rem;border-top:1px solid var(--line);display:flex;justi
   </header>
 
   <main class="works-list fade">
-<article class="work-item fade"><div class="work-image"><a href="#proj-thesis" class="work-img-anchor"><img src="images/cover_thesis.jpg" alt="Architecture that Mirrors Nature" loading="lazy"></a></div><div class="work-meta"><div><h2 class="work-title">Architecture that Mirrors Nature</h2><div class="work-details"><strong>Keihoku, Kyoto, Japan</strong><br>Master's Thesis / Timber Warehouse<br>Design — Kota Kawakami</div><div><span class="work-tag">Master Thesis</span><span class="work-tag">Timber Warehouse</span><span class="work-tag">Keihoku</span></div></div><div class="work-year">2026</div></div></article>
-<article class="work-item fade"><div class="work-image"><a href="#proj-ephemeral" class="work-img-anchor"><img src="images/cover_ephemeral.jpg" alt="The Ephemeral House" loading="lazy"></a></div><div class="work-meta"><div><h2 class="work-title">The Ephemeral House</h2><div class="work-details"><strong>Espoo, Finland</strong><br>Competition / Space<br>Design — Group</div><div><span class="work-tag">Competition</span><span class="work-tag">Installation</span></div></div><div class="work-year">2024</div></div></article>
-<article class="work-item fade"><div class="work-image"><a href="#proj-kide" class="work-img-anchor"><img src="images/cover_kide.jpg" alt="KIDE" loading="lazy"></a></div><div class="work-meta"><div><h2 class="work-title">KIDE</h2><div class="work-details"><strong>Kuhmo, Finland</strong><br>Wood Program / Outdoor Stage<br>Design — Aalto University Wood Program (Group)</div><div><span class="work-tag">Built</span><span class="work-tag">Timber</span><span class="work-tag">Group</span></div></div><div class="work-year">2024</div></div></article>
-<article class="work-item fade"><div class="work-image"><a href="#proj-window" class="work-img-anchor"><img src="images/cover_window.jpg" alt="WINDOW-SCOPE" loading="lazy"></a></div><div class="work-meta"><div><h2 class="work-title">WINDOW-SCOPE</h2><div class="work-details"><strong>Aichi, Japan</strong><br>Competition / Rest Room<br>Design — Kota Kawakami</div><div><span class="work-tag">Competition</span><span class="work-tag">Architecture</span></div></div><div class="work-year">2025</div></div></article>
-<article class="work-item fade"><div class="work-image"><a href="#proj-bird" class="work-img-anchor"><img src="images/cover_bird.jpg" alt="Bird Station" loading="lazy"></a></div><div class="work-meta"><div><h2 class="work-title">Bird Station</h2><div class="work-details"><strong>Tokyo, Japan</strong><br>Diploma / Complex<br>Design — Kota Kawakami</div><div><span class="work-tag">Diploma</span><span class="work-tag">Urban</span><span class="work-tag">Ecosystem</span></div></div><div class="work-year">2022</div></div></article>
-<article class="work-item fade"><div class="work-image"><a href="#proj-solar" class="work-img-anchor"><img src="images/cover_solar.jpg" alt="Solar Ring" loading="lazy"></a></div><div class="work-meta"><div><h2 class="work-title">Solar Ring</h2><div class="work-details"><strong>Orbetello, Italy</strong><br>Competition / Observatory<br>Design — Kota Kawakami (Group)</div><div><span class="work-tag">Competition</span><span class="work-tag">Landscape</span><span class="work-tag">Group</span></div></div><div class="work-year">2021</div></div></article>
-<article class="work-item fade"><div class="work-image"><a href="#proj-machiya" class="work-img-anchor"><img src="images/cover_machiya.jpg" alt="Re-thinking Machiya Ruins" loading="lazy"></a></div><div class="work-meta"><div><h2 class="work-title">Re-thinking Machiya Ruins</h2><div class="work-details"><strong>Kyoto, Japan</strong><br>Design Studio / Renovation<br>Design — Kota Kawakami</div><div><span class="work-tag">Renovation</span><span class="work-tag">Housing</span><span class="work-tag">Machiya</span></div></div><div class="work-year">2022</div></div></article>
-<article class="work-item fade"><div class="work-image"><a href="#proj-hotel" class="work-img-anchor"><img src="images/cover_hotel.jpg" alt="Hotel a la carte" loading="lazy"></a></div><div class="work-meta"><div><h2 class="work-title">Hotel a la carte</h2><div class="work-details"><strong>Tokyo, Japan</strong><br>Competition / Hotel<br>Design — Group</div><div><span class="work-tag">Competition</span><span class="work-tag">Housing</span><span class="work-tag">Group</span></div></div><div class="work-year">2022</div></div></article>
-<article class="work-item fade"><div class="work-image"><a href="#proj-light" class="work-img-anchor"><img src="images/cover_light.jpg" alt="Light" loading="lazy"></a></div><div class="work-meta"><div><h2 class="work-title">Light</h2><div class="work-details"><strong>Kyoto, Japan</strong><br>School Festival / Pavilion<br>Design & Build — Art club 'noir' (Group)</div><div><span class="work-tag">Built</span><span class="work-tag">Pavilion</span><span class="work-tag">Group</span></div></div><div class="work-year">2019</div></div></article>
+<article class="work-item fade"><div class="work-image"><div class="work-img-anchor" onclick="goProj('thesis')" role="link" tabindex="0"><img src="images/cover_thesis.jpg" alt="Architecture that Mirrors Nature" loading="lazy"></div></div><div class="work-meta"><div><h2 class="work-title">Architecture that Mirrors Nature</h2><div class="work-details"><strong>Keihoku, Kyoto, Japan</strong><br>Master's Thesis / Timber Warehouse<br>Design — Kota Kawakami</div><div><span class="work-tag">Master Thesis</span><span class="work-tag">Timber Warehouse</span><span class="work-tag">Keihoku</span></div></div><div class="work-year">2026</div></div></article>
+<article class="work-item fade"><div class="work-image"><div class="work-img-anchor" onclick="goProj('ephemeral')" role="link" tabindex="0"><img src="images/cover_ephemeral.jpg" alt="The Ephemeral House" loading="lazy"></div></div><div class="work-meta"><div><h2 class="work-title">The Ephemeral House</h2><div class="work-details"><strong>Espoo, Finland</strong><br>Competition / Space<br>Design — Group</div><div><span class="work-tag">Competition</span><span class="work-tag">Installation</span></div></div><div class="work-year">2024</div></div></article>
+<article class="work-item fade"><div class="work-image"><div class="work-img-anchor" onclick="goProj('kide')" role="link" tabindex="0"><img src="images/cover_kide.jpg" alt="KIDE" loading="lazy"></div></div><div class="work-meta"><div><h2 class="work-title">KIDE</h2><div class="work-details"><strong>Kuhmo, Finland</strong><br>Wood Program / Outdoor Stage<br>Design — Aalto University Wood Program (Group)</div><div><span class="work-tag">Built</span><span class="work-tag">Timber</span><span class="work-tag">Group</span></div></div><div class="work-year">2024</div></div></article>
+<article class="work-item fade"><div class="work-image"><div class="work-img-anchor" onclick="goProj('window')" role="link" tabindex="0"><img src="images/cover_window.jpg" alt="WINDOW-SCOPE" loading="lazy"></div></div><div class="work-meta"><div><h2 class="work-title">WINDOW-SCOPE</h2><div class="work-details"><strong>Aichi, Japan</strong><br>Competition / Rest Room<br>Design — Kota Kawakami</div><div><span class="work-tag">Competition</span><span class="work-tag">Architecture</span></div></div><div class="work-year">2025</div></div></article>
+<article class="work-item fade"><div class="work-image"><div class="work-img-anchor" onclick="goProj('bird')" role="link" tabindex="0"><img src="images/cover_bird.jpg" alt="Bird Station" loading="lazy"></div></div><div class="work-meta"><div><h2 class="work-title">Bird Station</h2><div class="work-details"><strong>Tokyo, Japan</strong><br>Diploma / Complex<br>Design — Kota Kawakami</div><div><span class="work-tag">Diploma</span><span class="work-tag">Urban</span><span class="work-tag">Ecosystem</span></div></div><div class="work-year">2022</div></div></article>
+<article class="work-item fade"><div class="work-image"><div class="work-img-anchor" onclick="goProj('solar')" role="link" tabindex="0"><img src="images/cover_solar.jpg" alt="Solar Ring" loading="lazy"></div></div><div class="work-meta"><div><h2 class="work-title">Solar Ring</h2><div class="work-details"><strong>Orbetello, Italy</strong><br>Competition / Observatory<br>Design — Kota Kawakami (Group)</div><div><span class="work-tag">Competition</span><span class="work-tag">Landscape</span><span class="work-tag">Group</span></div></div><div class="work-year">2021</div></div></article>
+<article class="work-item fade"><div class="work-image"><div class="work-img-anchor" onclick="goProj('machiya')" role="link" tabindex="0"><img src="images/cover_machiya.jpg" alt="Re-thinking Machiya Ruins" loading="lazy"></div></div><div class="work-meta"><div><h2 class="work-title">Re-thinking Machiya Ruins</h2><div class="work-details"><strong>Kyoto, Japan</strong><br>Design Studio / Renovation<br>Design — Kota Kawakami</div><div><span class="work-tag">Renovation</span><span class="work-tag">Housing</span><span class="work-tag">Machiya</span></div></div><div class="work-year">2022</div></div></article>
+<article class="work-item fade"><div class="work-image"><div class="work-img-anchor" onclick="goProj('hotel')" role="link" tabindex="0"><img src="images/cover_hotel.jpg" alt="Hotel a la carte" loading="lazy"></div></div><div class="work-meta"><div><h2 class="work-title">Hotel a la carte</h2><div class="work-details"><strong>Tokyo, Japan</strong><br>Competition / Hotel<br>Design — Group</div><div><span class="work-tag">Competition</span><span class="work-tag">Housing</span><span class="work-tag">Group</span></div></div><div class="work-year">2022</div></div></article>
+<article class="work-item fade"><div class="work-image"><div class="work-img-anchor" onclick="goProj('light')" role="link" tabindex="0"><img src="images/cover_light.jpg" alt="Light" loading="lazy"></div></div><div class="work-meta"><div><h2 class="work-title">Light</h2><div class="work-details"><strong>Kyoto, Japan</strong><br>School Festival / Pavilion<br>Design & Build — Art club 'noir' (Group)</div><div><span class="work-tag">Built</span><span class="work-tag">Pavilion</span><span class="work-tag">Group</span></div></div><div class="work-year">2019</div></div></article>
   </main>
 
   <section class="about-wrap fade" id="about">
@@ -225,7 +225,7 @@ footer{padding:1.5rem 2.5rem;border-top:1px solid var(--line);display:flex;justi
 <div class="aw-row"><span><a href="https://winners.architizer.com/2025/Typology/cultural-13/pavilions-5/kide/" target="_blank" rel="noopener">Architizer A+Awards — Popular Choice winner</a></span><span>2025</span></div>
 <div class="aw-row"><span><a href="http://www.jia-tokai.org/competition/40.htm" target="_blank" rel="noopener">JIA Tokai Branch Design Competition — 2nd prize</a></span><span>2024</span></div>
 <div class="aw-row"><span><a href="https://sjsf.se/local-pages/japan/%e5%8a%a9%e6%88%90%e4%ba%a4%e4%bb%98%e5%bc%8f%e3%83%bb%e6%87%87%e8%ab%87%e4%bc%9a/" target="_blank" rel="noopener">Scandinavia-Japan Sasakawa Foundation — Selection</a></span><span>2023</span></div>
-<div class="aw-row"><span><a href="#proj-bird" target="_self" rel="noopener">Graduation Design Excellence Award — KIT</a></span><span>2022</span></div>
+<div class="aw-row"><span><a href="javascript:void(0)" onclick="goProj('bird')" target="_self" rel="noopener">Graduation Design Excellence Award — KIT</a></span><span>2022</span></div>
         </div>
       </div>
     </div>
@@ -240,7 +240,7 @@ footer{padding:1.5rem 2.5rem;border-top:1px solid var(--line);display:flex;justi
         +81-80-3674-0598<br>
         Kyoto, Japan
       </div>
-      <form class="cform" id="contact-form" action="https://formspree.io/f/xovdqzzj" method="POST">
+      <form class="cform" id="contact-form" action="https://formspree.io/f/xpqklkwy" method="POST">
         <div class="form-row">
           <input type="text" name="name" placeholder="Name" required>
           <input type="text" name="company" placeholder="Company (optional)">
@@ -265,7 +265,7 @@ footer{padding:1.5rem 2.5rem;border-top:1px solid var(--line);display:flex;justi
 <!-- ===== PROJECT PAGES ===== -->
 
 <!-- ===== PROJECT: ARCHITECTURE THAT MIRRORS NATURE ===== -->
-<div class="page" id="proj-thesis"><div class="proj-hero"><img src="images/th_02.jpg" alt="Architecture that Mirrors Nature"></div><div class="back-bar"><a class="back-btn" href="#top">&#8592; Works</a><span class="back-proj-title">Architecture that Mirrors Nature</span></div><div class="proj-header"><div><h1>Architecture that Mirrors Nature</h1><p class="proj-sub"><strong>Keihoku, Kyoto, Japan</strong><br>Master's Thesis / Timber Warehouse<br>Design — Kota Kawakami</p></div><div class="proj-year">2026</div></div><div class="proj-body"><p class="proj-text">How can local industries and techniques be passed on to future generations in regions facing population decline? This proposal explores architectural approaches that respect enduring local practices while giving the present new value.<br><br>By re-recognizing wood scraps generated during timber production as a distinctive feature of the local industry and utilizing them as building materials, the project expresses the identity of the place through space. A warehouse for drying and storing timber is proposed using a structure that embraces the irregular shapes produced by standardized lumber. As the drying timber becomes walls and ceilings, it transforms over time, reflecting local practices and creating a new landscape for living richly.</p><p class="proj-text-ja">過疎化する里山地域において、土地に根差した産業と技術をいかに未来へと継承していくか。本提案は、これまで続けられてきた地域の営みを尊重しつつ、現在に対して新たな価値を纏わせる建築のあり方を探るものである。<br><br>木材の生産過程で必然的に生じる端材を地域産業の特色として捉え直し、建築資材として積極的に活用することで、その土地のアイデンティティを空間として表現する。規格化された製材から生まれる歪な形をそのまま受け入れる架構によって、木材を乾燥・保管するための倉庫を計画した。乾燥中の木材が壁や天井となり、時間とともに姿を変えるこの建築は、地域の営みを映し出す新たな風景となる。</p><div class="gallery">
+<div class="page" id="proj-thesis"><div class="proj-hero"><img src="images/th_02.jpg" alt="Architecture that Mirrors Nature"></div><div class="back-bar"><span class="back-btn" onclick="goIdx()">&#8592; Works</span><span class="back-proj-title">Architecture that Mirrors Nature</span></div><div class="proj-header"><div><h1>Architecture that Mirrors Nature</h1><p class="proj-sub"><strong>Keihoku, Kyoto, Japan</strong><br>Master's Thesis / Timber Warehouse<br>Design — Kota Kawakami</p></div><div class="proj-year">2026</div></div><div class="proj-body"><p class="proj-text">How can local industries and techniques be passed on to future generations in regions facing population decline? This proposal explores architectural approaches that respect enduring local practices while giving the present new value.<br><br>By re-recognizing wood scraps generated during timber production as a distinctive feature of the local industry and utilizing them as building materials, the project expresses the identity of the place through space. A warehouse for drying and storing timber is proposed using a structure that embraces the irregular shapes produced by standardized lumber. As the drying timber becomes walls and ceilings, it transforms over time, reflecting local practices and creating a new landscape for living richly.</p><p class="proj-text-ja">過疎化する里山地域において、土地に根差した産業と技術をいかに未来へと継承していくか。本提案は、これまで続けられてきた地域の営みを尊重しつつ、現在に対して新たな価値を纏わせる建築のあり方を探るものである。<br><br>木材の生産過程で必然的に生じる端材を地域産業の特色として捉え直し、建築資材として積極的に活用することで、その土地のアイデンティティを空間として表現する。規格化された製材から生まれる歪な形をそのまま受け入れる架構によって、木材を乾燥・保管するための倉庫を計画した。乾燥中の木材が壁や天井となり、時間とともに姿を変えるこの建築は、地域の営みを映し出す新たな風景となる。</p><div class="gallery">
 <!-- ======================================================
      HOW TO ADD / REPLACE IMAGES for "Architecture that Mirrors Nature"
      1. Place your jpg/png in the images/ folder
@@ -286,7 +286,7 @@ footer{padding:1.5rem 2.5rem;border-top:1px solid var(--line);display:flex;justi
 <!-- END GALLERY for "Architecture that Mirrors Nature" --></div></div></div>
 
 <!-- ===== PROJECT: THE EPHEMERAL HOUSE ===== -->
-<div class="page" id="proj-ephemeral"><div class="proj-hero"><img src="images/ep_01.jpg" alt="The Ephemeral House"></div><div class="back-bar"><a class="back-btn" href="#top">&#8592; Works</a><span class="back-proj-title">The Ephemeral House</span></div><div class="proj-header"><div><h1>The Ephemeral House</h1><p class="proj-sub"><strong>Espoo, Finland</strong><br>Competition / Space<br>Design — Group</p></div><div class="proj-year">2024</div></div><div class="proj-body"><p class="proj-text">An architecture emerges from a minimal human gesture interacting with nature. A delicate, web-like structure is woven between trees, serving as a canvas for the seasons.<br><br>In winter, the framework captures dew, ice, and snow, gradually forming a temporary dwelling — a transient sanctuary for quiet contemplation in the forest. With spring, the house recedes, its melting form returning to the earth and nourishing new life. The architecture completes itself not in permanence, but through its cyclical disappearance, reflecting the forest's endless rhythm.</p><div class="gallery">
+<div class="page" id="proj-ephemeral"><div class="proj-hero"><img src="images/ep_01.jpg" alt="The Ephemeral House"></div><div class="back-bar"><span class="back-btn" onclick="goIdx()">&#8592; Works</span><span class="back-proj-title">The Ephemeral House</span></div><div class="proj-header"><div><h1>The Ephemeral House</h1><p class="proj-sub"><strong>Espoo, Finland</strong><br>Competition / Space<br>Design — Group</p></div><div class="proj-year">2024</div></div><div class="proj-body"><p class="proj-text">An architecture emerges from a minimal human gesture interacting with nature. A delicate, web-like structure is woven between trees, serving as a canvas for the seasons.<br><br>In winter, the framework captures dew, ice, and snow, gradually forming a temporary dwelling — a transient sanctuary for quiet contemplation in the forest. With spring, the house recedes, its melting form returning to the earth and nourishing new life. The architecture completes itself not in permanence, but through its cyclical disappearance, reflecting the forest's endless rhythm.</p><div class="gallery">
 <!-- ======================================================
      HOW TO ADD / REPLACE IMAGES for "The Ephemeral House"
      1. Place your jpg/png in the images/ folder
@@ -301,7 +301,7 @@ footer{padding:1.5rem 2.5rem;border-top:1px solid var(--line);display:flex;justi
 <!-- END GALLERY for "The Ephemeral House" --></div></div></div>
 
 <!-- ===== PROJECT: KIDE ===== -->
-<div class="page" id="proj-kide"><div class="proj-hero"><img src="images/kd_01.jpg" alt="KIDE"></div><div class="back-bar"><a class="back-btn" href="#top">&#8592; Works</a><span class="back-proj-title">KIDE</span></div><div class="proj-header"><div><h1>KIDE</h1><p class="proj-sub"><strong>Kuhmo, Finland</strong><br>Wood Program / Outdoor Stage<br>Design — Aalto University Wood Program (Group)</p></div><div class="proj-year">2024</div></div><div class="proj-body"><p class="proj-text">Kide is a design and construction project addressing the need for an outdoor event space in Kuhmo, Finland. Kide ('ice crystal' in Finnish) references themes related to nature in its form and materiality, through the use of fractal geometry and local timber.<br><br>My role: developed derivative ideas from the initial concept, created prototype models, led 3D modeling of the overall shape, collaborated with the structural team on dimensions and snow load calculations, created production drawings, and managed on-site construction.</p><div class="gallery">
+<div class="page" id="proj-kide"><div class="proj-hero"><img src="images/kd_01.jpg" alt="KIDE"></div><div class="back-bar"><span class="back-btn" onclick="goIdx()">&#8592; Works</span><span class="back-proj-title">KIDE</span></div><div class="proj-header"><div><h1>KIDE</h1><p class="proj-sub"><strong>Kuhmo, Finland</strong><br>Wood Program / Outdoor Stage<br>Design — Aalto University Wood Program (Group)</p></div><div class="proj-year">2024</div></div><div class="proj-body"><p class="proj-text">Kide is a design and construction project addressing the need for an outdoor event space in Kuhmo, Finland. Kide ('ice crystal' in Finnish) references themes related to nature in its form and materiality, through the use of fractal geometry and local timber.<br><br>My role: developed derivative ideas from the initial concept, created prototype models, led 3D modeling of the overall shape, collaborated with the structural team on dimensions and snow load calculations, created production drawings, and managed on-site construction.</p><div class="gallery">
 <!-- ======================================================
      HOW TO ADD / REPLACE IMAGES for "KIDE"
      1. Place your jpg/png in the images/ folder
@@ -322,7 +322,7 @@ footer{padding:1.5rem 2.5rem;border-top:1px solid var(--line);display:flex;justi
 <!-- END GALLERY for "KIDE" --></div></div></div>
 
 <!-- ===== PROJECT: WINDOW-SCOPE ===== -->
-<div class="page" id="proj-window"><div class="proj-hero"><img src="images/ws_01.jpg" alt="WINDOW-SCOPE"></div><div class="back-bar"><a class="back-btn" href="#top">&#8592; Works</a><span class="back-proj-title">WINDOW-SCOPE</span></div><div class="proj-header"><div><h1>WINDOW-SCOPE</h1><p class="proj-sub"><strong>Aichi, Japan</strong><br>Competition / Rest Room<br>Design — Kota Kawakami</p></div><div class="proj-year">2025</div></div><div class="proj-body"><p class="proj-text">This project is inspired by a subtle site phenomenon, where the lawn's gentle slopes occasionally reveal glimpses of the sea. The design enhances this sense of discovery throughout the park.<br><br>A monolithic wall with carefully placed openings frames views and guides sightlines, encouraging visitors to notice everyday elements — the trees, the sky, and other people. By turning lawns and stone steps into viewpoints, the project creates a dispersed field of observation, allowing visitors to craft their own experience.</p><div class="gallery">
+<div class="page" id="proj-window"><div class="proj-hero"><img src="images/ws_01.jpg" alt="WINDOW-SCOPE"></div><div class="back-bar"><span class="back-btn" onclick="goIdx()">&#8592; Works</span><span class="back-proj-title">WINDOW-SCOPE</span></div><div class="proj-header"><div><h1>WINDOW-SCOPE</h1><p class="proj-sub"><strong>Aichi, Japan</strong><br>Competition / Rest Room<br>Design — Kota Kawakami</p></div><div class="proj-year">2025</div></div><div class="proj-body"><p class="proj-text">This project is inspired by a subtle site phenomenon, where the lawn's gentle slopes occasionally reveal glimpses of the sea. The design enhances this sense of discovery throughout the park.<br><br>A monolithic wall with carefully placed openings frames views and guides sightlines, encouraging visitors to notice everyday elements — the trees, the sky, and other people. By turning lawns and stone steps into viewpoints, the project creates a dispersed field of observation, allowing visitors to craft their own experience.</p><div class="gallery">
 <!-- ======================================================
      HOW TO ADD / REPLACE IMAGES for "WINDOW-SCOPE"
      1. Place your jpg/png in the images/ folder
@@ -338,7 +338,7 @@ footer{padding:1.5rem 2.5rem;border-top:1px solid var(--line);display:flex;justi
 <!-- END GALLERY for "WINDOW-SCOPE" --></div></div></div>
 
 <!-- ===== PROJECT: BIRD STATION ===== -->
-<div class="page" id="proj-bird"><div class="proj-hero"><img src="images/bs_01.jpg" alt="Bird Station"></div><div class="back-bar"><a class="back-btn" href="#top">&#8592; Works</a><span class="back-proj-title">Bird Station</span></div><div class="proj-header"><div><h1>Bird Station</h1><p class="proj-sub"><strong>Tokyo, Japan</strong><br>Diploma / Complex<br>Design — Kota Kawakami</p></div><div class="proj-year">2022</div></div><div class="proj-body"><p class="proj-text">It proposes an architecture that reconnects urban ecosystems fragmented by urban development and creates a rich environment. Historically, people have lived rich lives by coexisting with the surrounding environment and its creatures. However, large-scale urban development is severing relationships with diverse creatures and destroying original ecosystems.<br><br>In today's society, where the links between people and creatures seem to have become weaker, we considered the symbiosis between the two.</p><div class="gallery">
+<div class="page" id="proj-bird"><div class="proj-hero"><img src="images/bs_01.jpg" alt="Bird Station"></div><div class="back-bar"><span class="back-btn" onclick="goIdx()">&#8592; Works</span><span class="back-proj-title">Bird Station</span></div><div class="proj-header"><div><h1>Bird Station</h1><p class="proj-sub"><strong>Tokyo, Japan</strong><br>Diploma / Complex<br>Design — Kota Kawakami</p></div><div class="proj-year">2022</div></div><div class="proj-body"><p class="proj-text">It proposes an architecture that reconnects urban ecosystems fragmented by urban development and creates a rich environment. Historically, people have lived rich lives by coexisting with the surrounding environment and its creatures. However, large-scale urban development is severing relationships with diverse creatures and destroying original ecosystems.<br><br>In today's society, where the links between people and creatures seem to have become weaker, we considered the symbiosis between the two.</p><div class="gallery">
 <!-- ======================================================
      HOW TO ADD / REPLACE IMAGES for "Bird Station"
      1. Place your jpg/png in the images/ folder
@@ -357,7 +357,7 @@ footer{padding:1.5rem 2.5rem;border-top:1px solid var(--line);display:flex;justi
 <!-- END GALLERY for "Bird Station" --></div></div></div>
 
 <!-- ===== PROJECT: SOLAR RING ===== -->
-<div class="page" id="proj-solar"><div class="proj-hero"><img src="images/sr_01.jpg" alt="Solar Ring"></div><div class="back-bar"><a class="back-btn" href="#top">&#8592; Works</a><span class="back-proj-title">Solar Ring</span></div><div class="proj-header"><div><h1>Solar Ring</h1><p class="proj-sub"><strong>Orbetello, Italy</strong><br>Competition / Observatory<br>Design — Kota Kawakami (Group)</p></div><div class="proj-year">2021</div></div><div class="proj-body"><p class="proj-text">A proposal for an observation facility in an Italian nature reserve, including a visitor center and guesthouse. Architecture is damaging many natural environments by claiming their space. The WWF aims to build facilities to protect wild birds — yet building in a nature reserve is a contradiction.<br><br>We wanted to build a sustainable system with low environmental impact, using solar energy and alternative construction methods.</p><div class="gallery">
+<div class="page" id="proj-solar"><div class="proj-hero"><img src="images/sr_01.jpg" alt="Solar Ring"></div><div class="back-bar"><span class="back-btn" onclick="goIdx()">&#8592; Works</span><span class="back-proj-title">Solar Ring</span></div><div class="proj-header"><div><h1>Solar Ring</h1><p class="proj-sub"><strong>Orbetello, Italy</strong><br>Competition / Observatory<br>Design — Kota Kawakami (Group)</p></div><div class="proj-year">2021</div></div><div class="proj-body"><p class="proj-text">A proposal for an observation facility in an Italian nature reserve, including a visitor center and guesthouse. Architecture is damaging many natural environments by claiming their space. The WWF aims to build facilities to protect wild birds — yet building in a nature reserve is a contradiction.<br><br>We wanted to build a sustainable system with low environmental impact, using solar energy and alternative construction methods.</p><div class="gallery">
 <!-- ======================================================
      HOW TO ADD / REPLACE IMAGES for "Solar Ring"
      1. Place your jpg/png in the images/ folder
@@ -375,7 +375,7 @@ footer{padding:1.5rem 2.5rem;border-top:1px solid var(--line);display:flex;justi
 <!-- END GALLERY for "Solar Ring" --></div></div></div>
 
 <!-- ===== PROJECT: RE-THINKING MACHIYA RUINS ===== -->
-<div class="page" id="proj-machiya"><div class="proj-hero"><img src="images/mc_01.jpg" alt="Re-thinking Machiya Ruins"></div><div class="back-bar"><a class="back-btn" href="#top">&#8592; Works</a><span class="back-proj-title">Re-thinking Machiya Ruins</span></div><div class="proj-header"><div><h1>Re-thinking Machiya Ruins</h1><p class="proj-sub"><strong>Kyoto, Japan</strong><br>Design Studio / Renovation<br>Design — Kota Kawakami</p></div><div class="proj-year">2022</div></div><div class="proj-body"><p class="proj-text">Spaces possible only through renovation. As Japan has become a mature society, the importance of utilizing existing stock is beginning to be recognized. Disused Machiya (traditional townhouses in Kyoto) is one such example.<br><br>There is concern that simply restoring them will result in the loss of the value of these decadent spaces. Through renovation design of existing Machiya ruins, we reconsidered how the space can be renovated to inherit and utilize the value of the ruins.</p><div class="gallery">
+<div class="page" id="proj-machiya"><div class="proj-hero"><img src="images/mc_01.jpg" alt="Re-thinking Machiya Ruins"></div><div class="back-bar"><span class="back-btn" onclick="goIdx()">&#8592; Works</span><span class="back-proj-title">Re-thinking Machiya Ruins</span></div><div class="proj-header"><div><h1>Re-thinking Machiya Ruins</h1><p class="proj-sub"><strong>Kyoto, Japan</strong><br>Design Studio / Renovation<br>Design — Kota Kawakami</p></div><div class="proj-year">2022</div></div><div class="proj-body"><p class="proj-text">Spaces possible only through renovation. As Japan has become a mature society, the importance of utilizing existing stock is beginning to be recognized. Disused Machiya (traditional townhouses in Kyoto) is one such example.<br><br>There is concern that simply restoring them will result in the loss of the value of these decadent spaces. Through renovation design of existing Machiya ruins, we reconsidered how the space can be renovated to inherit and utilize the value of the ruins.</p><div class="gallery">
 <!-- ======================================================
      HOW TO ADD / REPLACE IMAGES for "Re-thinking Machiya Ruins"
      1. Place your jpg/png in the images/ folder
@@ -395,7 +395,7 @@ footer{padding:1.5rem 2.5rem;border-top:1px solid var(--line);display:flex;justi
 <!-- END GALLERY for "Re-thinking Machiya Ruins" --></div></div></div>
 
 <!-- ===== PROJECT: HOTEL A LA CARTE ===== -->
-<div class="page" id="proj-hotel"><div class="proj-hero"><img src="images/hl_01.jpg" alt="Hotel a la carte"></div><div class="back-bar"><a class="back-btn" href="#top">&#8592; Works</a><span class="back-proj-title">Hotel a la carte</span></div><div class="proj-header"><div><h1>Hotel a la carte</h1><p class="proj-sub"><strong>Tokyo, Japan</strong><br>Competition / Hotel<br>Design — Group</p></div><div class="proj-year">2022</div></div><div class="proj-body"><p class="proj-text">Hotel a la carte stands on the site of the former Nakagin Capsule Tower. Here, functions that were previously housed in a single hotel room are now scattered throughout the building. There is a mix of rooms in which the functions cannot be identified — the room next door might be a living room, the one opposite a gallery.<br><br>Tokyo is a fluid city, full of diverse activities and changing daily. By rethinking established building types, we aimed to create a new hotel connected to the city.</p><div class="gallery">
+<div class="page" id="proj-hotel"><div class="proj-hero"><img src="images/hl_01.jpg" alt="Hotel a la carte"></div><div class="back-bar"><span class="back-btn" onclick="goIdx()">&#8592; Works</span><span class="back-proj-title">Hotel a la carte</span></div><div class="proj-header"><div><h1>Hotel a la carte</h1><p class="proj-sub"><strong>Tokyo, Japan</strong><br>Competition / Hotel<br>Design — Group</p></div><div class="proj-year">2022</div></div><div class="proj-body"><p class="proj-text">Hotel a la carte stands on the site of the former Nakagin Capsule Tower. Here, functions that were previously housed in a single hotel room are now scattered throughout the building. There is a mix of rooms in which the functions cannot be identified — the room next door might be a living room, the one opposite a gallery.<br><br>Tokyo is a fluid city, full of diverse activities and changing daily. By rethinking established building types, we aimed to create a new hotel connected to the city.</p><div class="gallery">
 <!-- ======================================================
      HOW TO ADD / REPLACE IMAGES for "Hotel a la carte"
      1. Place your jpg/png in the images/ folder
@@ -412,7 +412,7 @@ footer{padding:1.5rem 2.5rem;border-top:1px solid var(--line);display:flex;justi
 <!-- END GALLERY for "Hotel a la carte" --></div></div></div>
 
 <!-- ===== PROJECT: LIGHT ===== -->
-<div class="page" id="proj-light"><div class="proj-hero"><img src="images/lt_01.jpg" alt="Light"></div><div class="back-bar"><a class="back-btn" href="#top">&#8592; Works</a><span class="back-proj-title">Light</span></div><div class="proj-header"><div><h1>Light</h1><p class="proj-sub"><strong>Kyoto, Japan</strong><br>School Festival / Pavilion<br>Design & Build — Art club 'noir' (Group)</p></div><div class="proj-year">2019</div></div><div class="proj-body"><p class="proj-text">The art club 'noir' designed and constructed a mock-up stall at the school festival. The theme of 'Light' gave form to an architectural structure covered with a roof made of cloth and wire.<br><br>I felt the difficulty and satisfaction of creating something together with fellow students, and remember the excitement of seeing the completed building used by visitors. I learned the importance of cooperation, precision, and accurate communication.</p><div class="gallery">
+<div class="page" id="proj-light"><div class="proj-hero"><img src="images/lt_01.jpg" alt="Light"></div><div class="back-bar"><span class="back-btn" onclick="goIdx()">&#8592; Works</span><span class="back-proj-title">Light</span></div><div class="proj-header"><div><h1>Light</h1><p class="proj-sub"><strong>Kyoto, Japan</strong><br>School Festival / Pavilion<br>Design & Build — Art club 'noir' (Group)</p></div><div class="proj-year">2019</div></div><div class="proj-body"><p class="proj-text">The art club 'noir' designed and constructed a mock-up stall at the school festival. The theme of 'Light' gave form to an architectural structure covered with a roof made of cloth and wire.<br><br>I felt the difficulty and satisfaction of creating something together with fellow students, and remember the excitement of seeing the completed building used by visitors. I learned the importance of cooperation, precision, and accurate communication.</p><div class="gallery">
 <!-- ======================================================
      HOW TO ADD / REPLACE IMAGES for "Light"
      1. Place your jpg/png in the images/ folder
@@ -434,40 +434,31 @@ footer{padding:1.5rem 2.5rem;border-top:1px solid var(--line);display:flex;justi
 </div>
 
 <script>
-function showPage(hash){
-  var pages=document.querySelectorAll('.page');
-  pages.forEach(function(p){p.classList.remove('active');});
-  if(!hash || hash==='' || hash==='#' || hash==='#top'){
-    document.getElementById('index-page').classList.add('active');
-    window.scrollTo(0,0);
-    initFade();
-  } else if(hash==='#about'||hash==='#contact'){
-    document.getElementById('index-page').classList.add('active');
-    initFade();
-    setTimeout(function(){
-      var el=document.getElementById(hash.slice(1));
-      if(el) el.scrollIntoView({behavior:'smooth'});
-    },60);
-  } else {
-    var id=hash.slice(1); // e.g. "proj-thesis"
-    var pg=document.getElementById(id);
-    if(pg){
-      pg.classList.add('active');
-      window.scrollTo(0,0);
-    } else {
-      document.getElementById('index-page').classList.add('active');
-      initFade();
-    }
-  }
+function goProj(id){
+  document.querySelectorAll('.page').forEach(function(p){ p.classList.remove('active'); });
+  var pg = document.getElementById('proj-'+id);
+  if(pg){ pg.classList.add('active'); }
+  document.documentElement.scrollTop = 0;
+  document.body.scrollTop = 0;
 }
-window.addEventListener('hashchange',function(){
-  showPage(window.location.hash);
-});
-// Back bar buttons use href="#top" already via anchor
-// Keep these for any remaining onclick references
-function showIdx(){ window.location.hash='top'; }
-function showProj(id){ window.location.hash='proj-'+id; }
-function showSec(id){ window.location.hash=id; }
+function goIdx(){
+  document.querySelectorAll('.page').forEach(function(p){ p.classList.remove('active'); });
+  document.getElementById('index-page').classList.add('active');
+  document.documentElement.scrollTop = 0;
+  document.body.scrollTop = 0;
+  initFade();
+}
+function goSec(id){
+  goIdx();
+  setTimeout(function(){
+    var el = document.getElementById(id);
+    if(el) el.scrollIntoView({behavior:'smooth'});
+  }, 80);
+}
+// aliases
+function showIdx(){ goIdx(); }
+function showProj(id){ goProj(id); }
+function showSec(id){ goSec(id); }
 /* Lightbox */
 function initLB(){
   document.querySelectorAll('.g-full img,.g-half img,.g-third img,.g-wide img').forEach(function(im){
@@ -481,6 +472,9 @@ function initLB(){
 }
 function closeLB(){ document.getElementById('lb').classList.remove('open'); }
 document.addEventListener('keydown',function(e){ if(e.key==='Escape') closeLB(); });
+document.querySelectorAll('.work-img-anchor').forEach(function(el){
+  el.addEventListener('keydown',function(e){ if(e.key==='Enter') el.click(); });
+});
 // Contact form AJAX
 var cf=document.getElementById('contact-form');
 if(cf){
