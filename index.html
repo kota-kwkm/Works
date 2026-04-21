@@ -38,13 +38,13 @@ nav {
 .page { display: none; }
 .page.active { display: block; }
 
-/* INDEX */
+/* INDEX HEADER */
 .site-header { padding: 9rem 2.5rem 3rem; max-width: 820px; }
 .tagline { font-size: 11px; letter-spacing: .14em; text-transform: uppercase; color: var(--subtle); margin-bottom: 1rem; }
 .site-header h1 { font-size: clamp(24px, 3vw, 38px); font-weight: 400; line-height: 1.2; margin-bottom: .75rem; letter-spacing: -.01em; }
 .bio { font-size: 14px; color: var(--muted); line-height: 1.85; max-width: 480px; font-weight: 300; }
 
-/* WORKS LIST — Narisada style: image left, meta right, generous padding */
+/* WORKS LIST — image left, meta right */
 .works-list { padding: 0 2.5rem; }
 .work-item {
   display: grid;
@@ -64,7 +64,7 @@ nav {
   width: 100%; aspect-ratio: 4/3; object-fit: cover; display: block;
   transition: transform .7s cubic-bezier(.4,0,.2,1);
 }
-.work-img-btn:hover img { transform: scale(1.02); }
+.work-img-btn:hover img, .work-item:hover .work-img-btn img { transform: scale(1.02); }
 .work-meta { padding: 0; display: flex; flex-direction: column; justify-content: flex-start; padding-top: .25rem; }
 .work-title { font-size: clamp(16px, 1.8vw, 24px); font-weight: 400; letter-spacing: -.01em; margin-bottom: .75rem; line-height: 1.3; }
 .work-details { font-size: 12px; color: var(--muted); line-height: 2.1; font-weight: 300; }
@@ -97,7 +97,14 @@ nav {
 .proj-year-big { font-size: 44px; color: var(--subtle); font-weight: 300; flex-shrink: 0; line-height: 1; padding-top: .3rem; }
 .proj-body { padding: 2.5rem 2.5rem 5rem; max-width: 1200px; }
 .proj-text-en { font-size: 14px; color: var(--muted); line-height: 1.9; font-weight: 300; max-width: 640px; margin-bottom: 1rem; }
-.proj-text-ja { font-size: 13px; color: var(--subtle); line-height: 1.95; font-weight: 300; max-width: 640px; padding-top: 1rem; border-top: 1px solid var(--line); margin-bottom: 2.5rem; }
+.proj-text-ja { font-size: 13px; color: var(--subtle); line-height: 1.95; font-weight: 300; max-width: 640px; padding-top: 1rem; border-top: 1px solid var(--line); margin-bottom: 2rem; }
+
+/* COOPERATION BLOCK — Narisada style */
+.coop-block { margin-bottom: 2.5rem; border-top: 1px solid var(--line); padding-top: 1.25rem; max-width: 640px; }
+.coop-label { font-size: 10px; letter-spacing: .14em; text-transform: uppercase; color: var(--subtle); margin-bottom: .75rem; display: block; }
+.coop-row { font-size: 12px; color: var(--muted); line-height: 1.9; font-weight: 300; }
+.coop-row + .coop-row { margin-top: .2rem; }
+.coop-key { color: var(--ink); }
 
 /* GALLERY */
 .gallery { display: flex; flex-direction: column; gap: 1rem; }
@@ -112,7 +119,7 @@ nav {
 .lb { display: none; position: fixed; inset: 0; background: rgba(0,0,0,.94); z-index: 500; align-items: center; justify-content: center; cursor: zoom-out; }
 .lb.open { display: flex; }
 .lb img { max-width: 95vw; max-height: 95vh; object-fit: contain; cursor: default; }
-.lb-x { position: fixed; top: 1.25rem; right: 1.75rem; font-size: 26px; color: rgba(255,255,255,.55); cursor: pointer; transition: color .15s; z-index: 501; background: none; border: none; font-family: var(--sans); }
+.lb-x { position: fixed; top: 1.25rem; right: 1.75rem; font-size: 26px; color: rgba(255,255,255,.55); cursor: pointer; z-index: 501; background: none; border: none; font-family: var(--sans); }
 .lb-x:hover { color: #fff; }
 
 /* ABOUT */
@@ -143,7 +150,7 @@ nav {
 .cform input::placeholder, .cform textarea::placeholder { color: var(--subtle); }
 .btn-send { align-self: flex-start; padding: 11px 24px; background: var(--ink); color: var(--paper); border: none; font-family: var(--sans); font-size: 12px; letter-spacing: .08em; text-transform: uppercase; cursor: pointer; transition: opacity .2s; }
 .btn-send:hover { opacity: .8; }
-.form-ok { display: none; font-size: 12px; color: var(--muted); margin-top: .75rem; letter-spacing: .04em; }
+.form-ok { display: none; font-size: 12px; color: var(--muted); margin-top: .75rem; padding: .75rem 1rem; border: 1px solid var(--line); background: var(--paper); border-radius: 2px; }
 
 footer { padding: 1.5rem 2.5rem; border-top: 1px solid var(--line); display: flex; justify-content: space-between; align-items: center; }
 .fc { font-size: 11px; color: var(--subtle); }
@@ -154,12 +161,10 @@ footer { padding: 1.5rem 2.5rem; border-top: 1px solid var(--line); display: fle
 .fade { opacity: 0; transform: translateY(12px); transition: opacity .6s ease, transform .6s ease; }
 .fade.in { opacity: 1; transform: none; }
 
-/* desktop layout handled in base styles */
-
 /* TABLET */
 @media (max-width: 1024px) and (min-width: 769px) {
   nav, footer { padding-left: 1.75rem; padding-right: 1.75rem; }
-  .work-meta, .about-wrap, .contact-wrap { padding-left: 1.75rem; padding-right: 1.75rem; }
+  .works-list, .about-wrap, .contact-wrap { padding-left: 1.75rem; padding-right: 1.75rem; }
   .site-header { padding: 8rem 1.75rem 2.5rem; }
   .proj-header, .proj-body, .back-bar { padding-left: 1.75rem; padding-right: 1.75rem; }
 }
@@ -207,121 +212,103 @@ footer { padding: 1.5rem 2.5rem; border-top: 1px solid var(--line); display: fle
   </header>
 
   <main class="works-list fade">
-<div class="work-item" onclick="goProj(\'thesis\')">
-  <button class="work-img-btn" onclick="goProj('thesis')" aria-label="View Architecture that Mirrors Nature">
+<div class="work-item" id="cover-thesis" onclick="goProj('thesis')">
+  <button class="work-img-btn" aria-label="View Architecture that Mirrors Nature">
     <img src="images/cover_thesis.jpg" alt="Architecture that Mirrors Nature" loading="lazy">
   </button>
   <div class="work-meta">
-    <div>
-      <h2 class="work-title">Architecture that Mirrors Nature</h2>
-      <div class="work-details"><strong>Keihoku, Kyoto, Japan</strong><br>Master's Thesis / Timber Warehouse<br>Design — Kota Kawakami</div>
-      <div><span class="work-tag">Master Thesis</span><span class="work-tag">Timber</span><span class="work-tag">Keihoku</span></div>
-    </div>
+    <h2 class="work-title">Architecture that Mirrors Nature</h2>
+    <div class="work-details"><strong>Keihoku, Kyoto, Japan</strong><br>Master's Thesis / Timber Warehouse<br>Design — K.Kawakami</div>
     <div class="work-year">2026</div>
+    <div><span class="work-tag">Master Thesis</span><span class="work-tag">Timber</span><span class="work-tag">Keihoku</span></div>
   </div>
 </div>
-<div class="work-item" onclick="goProj(\'ephemeral\')">
-  <button class="work-img-btn" onclick="goProj('ephemeral')" aria-label="View The Ephemeral House">
+<div class="work-item" id="cover-ephemeral" onclick="goProj('ephemeral')">
+  <button class="work-img-btn" aria-label="View The Ephemeral House">
     <img src="images/cover_ephemeral.jpg" alt="The Ephemeral House" loading="lazy">
   </button>
   <div class="work-meta">
-    <div>
-      <h2 class="work-title">The Ephemeral House</h2>
-      <div class="work-details"><strong>Espoo, Finland</strong><br>Competition / Space<br>Design — Group</div>
-      <div><span class="work-tag">Competition</span><span class="work-tag">Installation</span></div>
-    </div>
+    <h2 class="work-title">The Ephemeral House</h2>
+    <div class="work-details"><strong>Espoo, Finland</strong><br>Competition / Space<br>Design — K.Kawakami</div>
     <div class="work-year">2024</div>
+    <div><span class="work-tag">Competition</span><span class="work-tag">Installation</span></div>
   </div>
 </div>
-<div class="work-item" onclick="goProj(\'kide\')">
-  <button class="work-img-btn" onclick="goProj('kide')" aria-label="View KIDE">
+<div class="work-item" id="cover-kide" onclick="goProj('kide')">
+  <button class="work-img-btn" aria-label="View KIDE">
     <img src="images/cover_kide.jpg" alt="KIDE" loading="lazy">
   </button>
   <div class="work-meta">
-    <div>
-      <h2 class="work-title">KIDE</h2>
-      <div class="work-details"><strong>Kuhmo, Finland</strong><br>Wood Program / Outdoor Stage<br>Design — Aalto University Wood Program (Group)</div>
-      <div><span class="work-tag">Built</span><span class="work-tag">Timber</span><span class="work-tag">Group</span></div>
-    </div>
+    <h2 class="work-title">KIDE</h2>
+    <div class="work-details"><strong>Kuhmo, Finland</strong><br>Wood Program / Outdoor Stage<br>Design — K.Kawakami (Group)</div>
     <div class="work-year">2024</div>
+    <div><span class="work-tag">Built</span><span class="work-tag">Timber</span><span class="work-tag">Group</span></div>
   </div>
 </div>
-<div class="work-item" onclick="goProj(\'window\')">
-  <button class="work-img-btn" onclick="goProj('window')" aria-label="View WINDOW-SCOPE">
+<div class="work-item" id="cover-window" onclick="goProj('window')">
+  <button class="work-img-btn" aria-label="View WINDOW-SCOPE">
     <img src="images/cover_window.jpg" alt="WINDOW-SCOPE" loading="lazy">
   </button>
   <div class="work-meta">
-    <div>
-      <h2 class="work-title">WINDOW-SCOPE</h2>
-      <div class="work-details"><strong>Aichi, Japan</strong><br>Competition / Rest Room<br>Design — Group</div>
-      <div><span class="work-tag">Competition</span><span class="work-tag">Architecture</span></div>
-    </div>
+    <h2 class="work-title">WINDOW-SCOPE</h2>
+    <div class="work-details"><strong>Aichi, Japan</strong><br>Competition / Rest Room<br>Design — K.Kawakami (Group)</div>
     <div class="work-year">2025</div>
+    <div><span class="work-tag">Competition</span><span class="work-tag">Architecture</span></div>
   </div>
 </div>
-<div class="work-item" onclick="goProj(\'bird\')">
-  <button class="work-img-btn" onclick="goProj('bird')" aria-label="View Bird Station">
+<div class="work-item" id="cover-bird" onclick="goProj('bird')">
+  <button class="work-img-btn" aria-label="View Bird Station">
     <img src="images/cover_bird.jpg" alt="Bird Station" loading="lazy">
   </button>
   <div class="work-meta">
-    <div>
-      <h2 class="work-title">Bird Station</h2>
-      <div class="work-details"><strong>Tokyo, Japan</strong><br>Diploma / Complex<br>Design — Kota Kawakami</div>
-      <div><span class="work-tag">Diploma</span><span class="work-tag">Urban</span><span class="work-tag">Ecosystem</span></div>
-    </div>
+    <h2 class="work-title">Bird Station</h2>
+    <div class="work-details"><strong>Tokyo, Japan</strong><br>Diploma / Complex<br>Design — K.Kawakami</div>
     <div class="work-year">2022</div>
+    <div><span class="work-tag">Diploma</span><span class="work-tag">Urban</span><span class="work-tag">Ecosystem</span></div>
   </div>
 </div>
-<div class="work-item" onclick="goProj(\'solar\')">
-  <button class="work-img-btn" onclick="goProj('solar')" aria-label="View Solar Ring">
+<div class="work-item" id="cover-solar" onclick="goProj('solar')">
+  <button class="work-img-btn" aria-label="View Solar Ring">
     <img src="images/cover_solar.jpg" alt="Solar Ring" loading="lazy">
   </button>
   <div class="work-meta">
-    <div>
-      <h2 class="work-title">Solar Ring</h2>
-      <div class="work-details"><strong>Orbetello, Italy</strong><br>Competition / Observatory<br>Design — Kota Kawakami (Group)</div>
-      <div><span class="work-tag">Competition</span><span class="work-tag">Landscape</span><span class="work-tag">Group</span></div>
-    </div>
+    <h2 class="work-title">Solar Ring</h2>
+    <div class="work-details"><strong>Orbetello, Italy</strong><br>Competition / Observatory<br>Design — K.Kawakami (Group)</div>
     <div class="work-year">2021</div>
+    <div><span class="work-tag">Competition</span><span class="work-tag">Landscape</span><span class="work-tag">Group</span></div>
   </div>
 </div>
-<div class="work-item" onclick="goProj(\'machiya\')">
-  <button class="work-img-btn" onclick="goProj('machiya')" aria-label="View Re-thinking Machiya Ruins">
+<div class="work-item" id="cover-machiya" onclick="goProj('machiya')">
+  <button class="work-img-btn" aria-label="View Re-thinking Machiya Ruins">
     <img src="images/cover_machiya.jpg" alt="Re-thinking Machiya Ruins" loading="lazy">
   </button>
   <div class="work-meta">
-    <div>
-      <h2 class="work-title">Re-thinking Machiya Ruins</h2>
-      <div class="work-details"><strong>Kyoto, Japan</strong><br>Design Studio / Renovation<br>Design — Kota Kawakami</div>
-      <div><span class="work-tag">Renovation</span><span class="work-tag">Housing</span><span class="work-tag">Machiya</span></div>
-    </div>
+    <h2 class="work-title">Re-thinking Machiya Ruins</h2>
+    <div class="work-details"><strong>Kyoto, Japan</strong><br>Design Studio / Renovation<br>Design — K.Kawakami</div>
     <div class="work-year">2022</div>
+    <div><span class="work-tag">Renovation</span><span class="work-tag">Housing</span><span class="work-tag">Machiya</span></div>
   </div>
 </div>
-<div class="work-item" onclick="goProj(\'hotel\')">
-  <button class="work-img-btn" onclick="goProj('hotel')" aria-label="View Hotel a la carte">
+<div class="work-item" id="cover-hotel" onclick="goProj('hotel')">
+  <button class="work-img-btn" aria-label="View Hotel a la carte">
     <img src="images/cover_hotel.jpg" alt="Hotel a la carte" loading="lazy">
   </button>
   <div class="work-meta">
-    <div>
-      <h2 class="work-title">Hotel a la carte</h2>
-      <div class="work-details"><strong>Tokyo, Japan</strong><br>Competition / Hotel<br>Design — Group</div>
-      <div><span class="work-tag">Competition</span><span class="work-tag">Housing</span><span class="work-tag">Group</span></div>
-    </div>
+    <h2 class="work-title">Hotel a la carte</h2>
+    <div class="work-details"><strong>Tokyo, Japan</strong><br>Competition / Hotel<br>Design — K.Kawakami (Group)</div>
     <div class="work-year">2022</div>
+    <div><span class="work-tag">Competition</span><span class="work-tag">Housing</span><span class="work-tag">Group</span></div>
   </div>
 </div>
-<div class="work-item" onclick="goProj(\'light\')">
-  <button class="work-img-btn" onclick="goProj('light')" aria-label="View Light">
+<div class="work-item" id="cover-light" onclick="goProj('light')">
+  <button class="work-img-btn" aria-label="View Light">
     <img src="images/cover_light.jpg" alt="Light" loading="lazy">
   </button>
   <div class="work-meta">
-    <div>
-      <h2 class="work-title">Light</h2>
-      <div class="work-details"><strong>Kyoto, Japan</strong><br>School Festival / Pavilion<br>Design & Build — Art club 'noir' (Group)</div>
-      <div><span class="work-tag">Built</span><span class="work-tag">Pavilion</span><span class="work-tag">Group</span></div>
-    </div>
+    <h2 class="work-title">Light</h2>
+    <div class="work-details"><strong>Kyoto, Japan</strong><br>School Festival / Pavilion<br>Design & Build — K.Kawakami (Group)</div>
     <div class="work-year">2019</div>
+    <div><span class="work-tag">Built</span><span class="work-tag">Pavilion</span><span class="work-tag">Group</span></div>
   </div>
 </div>
   </main>
@@ -363,16 +350,18 @@ footer { padding: 1.5rem 2.5rem; border-top: 1px solid var(--line); display: fle
         +81-80-3674-0598<br>
         Kyoto, Japan
       </div>
-      <form class="cform" id="contact-form" action="https://formspree.io/f/xpqklkwy" method="POST">
-        <div class="form-row">
-          <input type="text" name="name" placeholder="Name" required>
-          <input type="text" name="company" placeholder="Company (optional)">
-        </div>
-        <input type="email" name="email" placeholder="Email" required>
-        <textarea name="message" placeholder="Message" required></textarea>
-        <button type="submit" class="btn-send">Send</button>
-      </form>
-      <p class="form-ok" id="form-ok">Message sent — thank you.</p>
+      <div>
+        <form class="cform" id="contact-form" action="https://formspree.io/f/xpqklkwy" method="POST">
+          <div class="form-row">
+            <input type="text" name="name" placeholder="Name" required>
+            <input type="text" name="company" placeholder="Company (optional)">
+          </div>
+          <input type="email" name="email" placeholder="Email" required>
+          <textarea name="message" placeholder="Message" required></textarea>
+          <button type="submit" class="btn-send">Send</button>
+        </form>
+        <div class="form-ok" id="form-ok">&#10003; Message sent — thank you. We will get back to you shortly.</div>
+      </div>
     </div>
   </section>
 
@@ -390,21 +379,28 @@ footer { padding: 1.5rem 2.5rem; border-top: 1px solid var(--line); display: fle
 <div class="page" id="proj-thesis">
   <div class="proj-hero"><img src="images/th_02.jpg" alt="Architecture that Mirrors Nature"></div>
   <div class="back-bar">
-    <button class="back-btn" onclick="goIdx()">&#8592; Works</button>
+    <button class="back-btn" onclick="goBack('thesis')">&#8592; Works</button>
     <span class="back-proj-title">Architecture that Mirrors Nature</span>
   </div>
   <div class="proj-header">
     <div>
       <h1>Architecture that Mirrors Nature</h1>
-      <p class="proj-sub"><strong>Keihoku, Kyoto, Japan</strong><br>Master's Thesis / Timber Warehouse<br>Design — Kota Kawakami</p>
+      <p class="proj-sub"><strong>Keihoku, Kyoto, Japan</strong><br>Master's Thesis / Timber Warehouse<br>Design — K.Kawakami</p>
     </div>
     <div class="proj-year-big">2026</div>
   </div>
   <div class="proj-body">
     <p class="proj-text-en">How can local industries and techniques be passed on to future generations in regions facing population decline? This proposal explores architectural approaches that respect enduring local practices while giving the present new value.<br><br>By re-recognizing wood scraps generated during timber production as a distinctive feature of the local industry and utilizing them as building materials, the project expresses the identity of the place through space. A warehouse for drying and storing timber is proposed using a structure that embraces the irregular shapes produced by standardized lumber. As the drying timber becomes walls and ceilings, it transforms over time, reflecting local practices and creating a new landscape for living richly.</p>
     <p class="proj-text-ja">過疎化する里山地域において、土地に根差した産業と技術をいかに未来へと継承していくか。本提案は、これまで続けられてきた地域の営みを尊重しつつ、現在に対して新たな価値を纏わせる建築のあり方を探るものである。<br><br>木材の生産過程で必然的に生じる端材を地域産業の特色として捉え直し、建築資材として積極的に活用することで、その土地のアイデンティティを空間として表現する。規格化された製材から生まれる歪な形をそのまま受け入れる架構によって、木材を乾燥・保管するための倉庫を計画した。</p>
+    <div class="coop-block">
+  <span class="coop-label">Cooperation</span>
+  <p class="coop-row"><span class="coop-key">Models</span> — R.Toyama, S.Morikawa, S.Kawata, T.Ichimura</p>
+    <p class="coop-row"><span class="coop-key">Fieldwork</span> — S.Takamuro</p>
+    <p class="coop-row"><span class="coop-key">Timber Supply</span> — Tanaka Sawmill</p>
+    <p class="coop-row"><span class="coop-key">Photographs</span> — K.Masuda, R.Toyama, S.Kurisu, Kyoto Design Lab</p>
+</div>
     <div class="gallery">
-    <!-- To add images: place file in images/ folder, then copy a block
+    <!-- ADD IMAGES: place file in images/ folder
          Full:  <div class="g-full"><img src="images/FILE.jpg" alt=""><p class="caption">Caption</p></div>
          Half:  <div class="g-half"><img src="images/A.jpg" alt=""><img src="images/B.jpg" alt=""></div><p class="caption">Caption</p> -->
     <div class="g-full"><img src="images/th_01.jpg" alt="Interior — timber structure" loading="lazy"><p class="caption">Interior — timber structure</p></div>
@@ -421,21 +417,22 @@ footer { padding: 1.5rem 2.5rem; border-top: 1px solid var(--line); display: fle
 <div class="page" id="proj-ephemeral">
   <div class="proj-hero"><img src="images/ep_01.jpg" alt="The Ephemeral House"></div>
   <div class="back-bar">
-    <button class="back-btn" onclick="goIdx()">&#8592; Works</button>
+    <button class="back-btn" onclick="goBack('ephemeral')">&#8592; Works</button>
     <span class="back-proj-title">The Ephemeral House</span>
   </div>
   <div class="proj-header">
     <div>
       <h1>The Ephemeral House</h1>
-      <p class="proj-sub"><strong>Espoo, Finland</strong><br>Competition / Space<br>Design — Group</p>
+      <p class="proj-sub"><strong>Espoo, Finland</strong><br>Competition / Space<br>Design — K.Kawakami</p>
     </div>
     <div class="proj-year-big">2024</div>
   </div>
   <div class="proj-body">
     <p class="proj-text-en">An architecture emerges from a minimal human gesture interacting with nature. A delicate, web-like structure is woven between trees, serving as a canvas for the seasons.<br><br>In winter, the framework captures dew, ice, and snow, gradually forming a temporary dwelling — a transient sanctuary for quiet contemplation in the forest. With spring, the house recedes, its melting form returning to the earth. The architecture completes itself not in permanence, but through its cyclical disappearance.</p>
     <p class="proj-text-ja">人間の最小限の身振りと自然の相互作用から生まれる建築。木々の間に張り巡らされた繊細なウェブ状の構造が季節のキャンバスとなる。冬、架構は露・氷・雪を捉え仮設の住まいを形成し、春とともに溶けゆき大地に戻る。建築は循環する消滅を通じて完成し、森の無限のリズムを映し出す。</p>
+    
     <div class="gallery">
-    <!-- To add images: place file in images/ folder, then copy a block
+    <!-- ADD IMAGES: place file in images/ folder
          Full:  <div class="g-full"><img src="images/FILE.jpg" alt=""><p class="caption">Caption</p></div>
          Half:  <div class="g-half"><img src="images/A.jpg" alt=""><img src="images/B.jpg" alt=""></div><p class="caption">Caption</p> -->
     <div class="g-half"><img src="images/ep_01.jpg" alt="" loading="lazy"><img src="images/ep_02.jpg" alt="" loading="lazy"></div><p class="caption">Section drawing / Detail</p>
@@ -446,21 +443,28 @@ footer { padding: 1.5rem 2.5rem; border-top: 1px solid var(--line); display: fle
 <div class="page" id="proj-kide">
   <div class="proj-hero"><img src="images/kd_01.jpg" alt="KIDE"></div>
   <div class="back-bar">
-    <button class="back-btn" onclick="goIdx()">&#8592; Works</button>
+    <button class="back-btn" onclick="goBack('kide')">&#8592; Works</button>
     <span class="back-proj-title">KIDE</span>
   </div>
   <div class="proj-header">
     <div>
       <h1>KIDE</h1>
-      <p class="proj-sub"><strong>Kuhmo, Finland</strong><br>Wood Program / Outdoor Stage<br>Design — Aalto University Wood Program (Group)</p>
+      <p class="proj-sub"><strong>Kuhmo, Finland</strong><br>Wood Program / Outdoor Stage<br>Design — K.Kawakami (Group)</p>
     </div>
     <div class="proj-year-big">2024</div>
   </div>
   <div class="proj-body">
     <p class="proj-text-en">Kide is a design and construction project addressing the need for an outdoor event space in Kuhmo, Finland. Kide ('ice crystal' in Finnish) references themes related to nature in its form and materiality, through the use of fractal geometry and local timber.<br><br>My role: developed derivative ideas from the initial concept, created prototype models, led 3D modeling of the overall shape, collaborated with the structural team on snow load calculations, created production drawings, and managed on-site construction.</p>
     <p class="proj-text-ja">KIDEは、フィンランド東部クフモに屋外イベントスペースを設けるデザイン＆施工プロジェクト。「氷の結晶」を意味するKIDEは、フラクタル幾何学と地元産木材を通じて自然を参照する。担当：コンセプト展開、3Dモデリング、構造チームとの協働、製作図面作成、現場施工管理。</p>
+    <div class="coop-block">
+  <span class="coop-label">Cooperation</span>
+  <p class="coop-row"><span class="coop-key">Students</span> — A.Sato, D.Haak, D.Kravchuk, D.Hatzis, I.Ansari, J.Lehner, J.Lim, K.Tamaki, K.Kawakami, M.Jeri, M.Lim, N.Ogawa, O.Eriksson, S.Gomez, V.Makinen, W.Yoshida, Y.Fujita</p>
+    <p class="coop-row"><span class="coop-key">Instructors</span> — P.Kolari, L.Hamalainen, J.Siltanen, D.Zanotto</p>
+    <p class="coop-row"><span class="coop-key">Structural team</span> — M.Heikkinen, G.Hassan, J.Kowalski</p>
+    <p class="coop-row"><span class="coop-key">Photographs</span> — M.Auerniitty, Wood Program</p>
+</div>
     <div class="gallery">
-    <!-- To add images: place file in images/ folder, then copy a block
+    <!-- ADD IMAGES: place file in images/ folder
          Full:  <div class="g-full"><img src="images/FILE.jpg" alt=""><p class="caption">Caption</p></div>
          Half:  <div class="g-half"><img src="images/A.jpg" alt=""><img src="images/B.jpg" alt=""></div><p class="caption">Caption</p> -->
     <div class="g-half"><img src="images/kd_03.jpg" alt="" loading="lazy"><img src="images/kd_04.jpg" alt="" loading="lazy"></div><p class="caption">Concept sketch / Concept model</p>
@@ -477,21 +481,22 @@ footer { padding: 1.5rem 2.5rem; border-top: 1px solid var(--line); display: fle
 <div class="page" id="proj-window">
   <div class="proj-hero"><img src="images/ws_01.jpg" alt="WINDOW-SCOPE"></div>
   <div class="back-bar">
-    <button class="back-btn" onclick="goIdx()">&#8592; Works</button>
+    <button class="back-btn" onclick="goBack('window')">&#8592; Works</button>
     <span class="back-proj-title">WINDOW-SCOPE</span>
   </div>
   <div class="proj-header">
     <div>
       <h1>WINDOW-SCOPE</h1>
-      <p class="proj-sub"><strong>Aichi, Japan</strong><br>Competition / Rest Room<br>Design — Group</p>
+      <p class="proj-sub"><strong>Aichi, Japan</strong><br>Competition / Rest Room<br>Design — K.Kawakami (Group)</p>
     </div>
     <div class="proj-year-big">2025</div>
   </div>
   <div class="proj-body">
     <p class="proj-text-en">This project is inspired by a subtle site phenomenon, where the lawn's gentle slopes occasionally reveal glimpses of the sea. The design enhances this sense of discovery throughout the park.<br><br>A monolithic wall with carefully placed openings frames views and guides sightlines, encouraging visitors to notice everyday elements. By turning lawns and stone steps into viewpoints, the project creates a dispersed field of observation.</p>
     <p class="proj-text-ja">芝生の緩やかな傾斜が時折海の眺めを垣間見せるという敷地固有の現象にインスピレーションを得たプロジェクト。慎重に配置された開口部を持つモノリシックな壁が眺望をフレーミングし、芝生や石段を視点に変えることで分散した観察のフィールドを生み出す。</p>
+    
     <div class="gallery">
-    <!-- To add images: place file in images/ folder, then copy a block
+    <!-- ADD IMAGES: place file in images/ folder
          Full:  <div class="g-full"><img src="images/FILE.jpg" alt=""><p class="caption">Caption</p></div>
          Half:  <div class="g-half"><img src="images/A.jpg" alt=""><img src="images/B.jpg" alt=""></div><p class="caption">Caption</p> -->
     <div class="g-half"><img src="images/ws_02.jpg" alt="" loading="lazy"><img src="images/ws_03.jpg" alt="" loading="lazy"></div><p class="caption">Site / Concept axonometric</p>
@@ -503,21 +508,22 @@ footer { padding: 1.5rem 2.5rem; border-top: 1px solid var(--line); display: fle
 <div class="page" id="proj-bird">
   <div class="proj-hero"><img src="images/bs_01.jpg" alt="Bird Station"></div>
   <div class="back-bar">
-    <button class="back-btn" onclick="goIdx()">&#8592; Works</button>
+    <button class="back-btn" onclick="goBack('bird')">&#8592; Works</button>
     <span class="back-proj-title">Bird Station</span>
   </div>
   <div class="proj-header">
     <div>
       <h1>Bird Station</h1>
-      <p class="proj-sub"><strong>Tokyo, Japan</strong><br>Diploma / Complex<br>Design — Kota Kawakami</p>
+      <p class="proj-sub"><strong>Tokyo, Japan</strong><br>Diploma / Complex<br>Design — K.Kawakami</p>
     </div>
     <div class="proj-year-big">2022</div>
   </div>
   <div class="proj-body">
     <p class="proj-text-en">It proposes an architecture that reconnects urban ecosystems fragmented by urban development. Historically, people have lived rich lives by coexisting with the surrounding environment and its creatures. However, large-scale urban development is severing relationships with diverse creatures and destroying original ecosystems.<br><br>In today's society, where the links between people and creatures seem to have become weaker, we considered the symbiosis between the two.</p>
     <p class="proj-text-ja">都市開発によって断片化した都市生態系を再接続し、豊かな環境を生み出す建築を提案する。歴史的に人々は周囲の生き物と共存することで豊かな生活を送ってきたが、大規模な都市開発はその関係を断ち切りつつある。人と生き物のつながりが薄れている現代社会において、両者の共生を考えた。</p>
+    
     <div class="gallery">
-    <!-- To add images: place file in images/ folder, then copy a block
+    <!-- ADD IMAGES: place file in images/ folder
          Full:  <div class="g-full"><img src="images/FILE.jpg" alt=""><p class="caption">Caption</p></div>
          Half:  <div class="g-half"><img src="images/A.jpg" alt=""><img src="images/B.jpg" alt=""></div><p class="caption">Caption</p> -->
     <div class="g-full"><img src="images/bs_04.jpg" alt="Section 1:400" loading="lazy"><p class="caption">Section 1:400</p></div>
@@ -532,21 +538,25 @@ footer { padding: 1.5rem 2.5rem; border-top: 1px solid var(--line); display: fle
 <div class="page" id="proj-solar">
   <div class="proj-hero"><img src="images/sr_01.jpg" alt="Solar Ring"></div>
   <div class="back-bar">
-    <button class="back-btn" onclick="goIdx()">&#8592; Works</button>
+    <button class="back-btn" onclick="goBack('solar')">&#8592; Works</button>
     <span class="back-proj-title">Solar Ring</span>
   </div>
   <div class="proj-header">
     <div>
       <h1>Solar Ring</h1>
-      <p class="proj-sub"><strong>Orbetello, Italy</strong><br>Competition / Observatory<br>Design — Kota Kawakami (Group)</p>
+      <p class="proj-sub"><strong>Orbetello, Italy</strong><br>Competition / Observatory<br>Design — K.Kawakami (Group)</p>
     </div>
     <div class="proj-year-big">2021</div>
   </div>
   <div class="proj-body">
     <p class="proj-text-en">A proposal for an observation facility in an Italian nature reserve, including a visitor center and guesthouse. Architecture is damaging many natural environments by claiming their space. The WWF aims to build facilities to protect wild birds — yet building in a nature reserve is a contradiction.<br><br>We wanted to build a sustainable system with low environmental impact, using solar energy and alternative construction methods.</p>
     <p class="proj-text-ja">イタリアの自然保護区にビジターセンターとゲストハウスを含む観察施設を提案する。建築は空間を主張することで自然環境を傷つけている。野鳥保護施設を自然保護区に建設することは矛盾でもあり、太陽エネルギーと代替的な建設工法で環境負荷の低いシステムを構築した。</p>
+    <div class="coop-block">
+  <span class="coop-label">Cooperation</span>
+  <p class="coop-row"><span class="coop-key">Members</span> — S.Kondo, T.Okada, M.Bayaraa, A.Nimura</p>
+</div>
     <div class="gallery">
-    <!-- To add images: place file in images/ folder, then copy a block
+    <!-- ADD IMAGES: place file in images/ folder
          Full:  <div class="g-full"><img src="images/FILE.jpg" alt=""><p class="caption">Caption</p></div>
          Half:  <div class="g-half"><img src="images/A.jpg" alt=""><img src="images/B.jpg" alt=""></div><p class="caption">Caption</p> -->
     <div class="g-half"><img src="images/sr_02.jpg" alt="" loading="lazy"><img src="images/sr_03.jpg" alt="" loading="lazy"></div><p class="caption">Master plan 1:5000 / Infrastructure</p>
@@ -560,21 +570,22 @@ footer { padding: 1.5rem 2.5rem; border-top: 1px solid var(--line); display: fle
 <div class="page" id="proj-machiya">
   <div class="proj-hero"><img src="images/mc_01.jpg" alt="Re-thinking Machiya Ruins"></div>
   <div class="back-bar">
-    <button class="back-btn" onclick="goIdx()">&#8592; Works</button>
+    <button class="back-btn" onclick="goBack('machiya')">&#8592; Works</button>
     <span class="back-proj-title">Re-thinking Machiya Ruins</span>
   </div>
   <div class="proj-header">
     <div>
       <h1>Re-thinking Machiya Ruins</h1>
-      <p class="proj-sub"><strong>Kyoto, Japan</strong><br>Design Studio / Renovation<br>Design — Kota Kawakami</p>
+      <p class="proj-sub"><strong>Kyoto, Japan</strong><br>Design Studio / Renovation<br>Design — K.Kawakami</p>
     </div>
     <div class="proj-year-big">2022</div>
   </div>
   <div class="proj-body">
     <p class="proj-text-en">Spaces possible only through renovation. As Japan has become a mature society, the importance of utilizing existing stock is beginning to be recognized. Disused Machiya (traditional townhouses in Kyoto) is one such example.<br><br>There is concern that simply restoring them will result in the loss of the value of these decadent spaces. Through renovation design of existing Machiya ruins, we reconsidered how the space can be renovated to inherit and utilize the value of the ruins.</p>
     <p class="proj-text-ja">リノベーションによってのみ可能な空間を考えたい。成熟した社会となる日本において既存ストック活用の重要性が認識されつつある。京都の町家の廃屋はその一例だが、単に復元するだけでは廃屋の価値が失われる。廃屋の価値を継承・活用するためのリノベーションのあり方を再考した。</p>
+    
     <div class="gallery">
-    <!-- To add images: place file in images/ folder, then copy a block
+    <!-- ADD IMAGES: place file in images/ folder
          Full:  <div class="g-full"><img src="images/FILE.jpg" alt=""><p class="caption">Caption</p></div>
          Half:  <div class="g-half"><img src="images/A.jpg" alt=""><img src="images/B.jpg" alt=""></div><p class="caption">Caption</p> -->
     <div class="g-half"><img src="images/mc_02.jpg" alt="" loading="lazy"><img src="images/mc_09.jpg" alt="" loading="lazy"></div><p class="caption">Time diagram / Section model</p>
@@ -590,21 +601,25 @@ footer { padding: 1.5rem 2.5rem; border-top: 1px solid var(--line); display: fle
 <div class="page" id="proj-hotel">
   <div class="proj-hero"><img src="images/hl_01.jpg" alt="Hotel a la carte"></div>
   <div class="back-bar">
-    <button class="back-btn" onclick="goIdx()">&#8592; Works</button>
+    <button class="back-btn" onclick="goBack('hotel')">&#8592; Works</button>
     <span class="back-proj-title">Hotel a la carte</span>
   </div>
   <div class="proj-header">
     <div>
       <h1>Hotel a la carte</h1>
-      <p class="proj-sub"><strong>Tokyo, Japan</strong><br>Competition / Hotel<br>Design — Group</p>
+      <p class="proj-sub"><strong>Tokyo, Japan</strong><br>Competition / Hotel<br>Design — K.Kawakami (Group)</p>
     </div>
     <div class="proj-year-big">2022</div>
   </div>
   <div class="proj-body">
     <p class="proj-text-en">Hotel a la carte stands on the site of the former Nakagin Capsule Tower. Here, functions previously housed in a single hotel room are now scattered throughout the building. The room next door might be a living room, the one opposite a gallery.<br><br>Tokyo is a fluid city, full of diverse activities and changing daily. By rethinking established building types, we aimed to create a new hotel connected to the city.</p>
     <p class="proj-text-ja">Hotel a la carteは中銀カプセルタワーの跡地に建つ。かつて一つの部屋に収まっていた機能が建物全体に散在し、隣の部屋はリビング、向かいの部屋はギャラリーかもしれない。東京という流動的な都市と繋がる新しいホテルのあり方を目指した。</p>
+    <div class="coop-block">
+  <span class="coop-label">Cooperation</span>
+  <p class="coop-row"><span class="coop-key">Members</span> — T.Okada, S.Kurisu, K.Takayoshi, A.Nimura</p>
+</div>
     <div class="gallery">
-    <!-- To add images: place file in images/ folder, then copy a block
+    <!-- ADD IMAGES: place file in images/ folder
          Full:  <div class="g-full"><img src="images/FILE.jpg" alt=""><p class="caption">Caption</p></div>
          Half:  <div class="g-half"><img src="images/A.jpg" alt=""><img src="images/B.jpg" alt=""></div><p class="caption">Caption</p> -->
     <div class="g-full"><img src="images/hl_07.jpg" alt="Street view" loading="lazy"><p class="caption">Street view</p></div>
@@ -617,21 +632,22 @@ footer { padding: 1.5rem 2.5rem; border-top: 1px solid var(--line); display: fle
 <div class="page" id="proj-light">
   <div class="proj-hero"><img src="images/lt_01.jpg" alt="Light"></div>
   <div class="back-bar">
-    <button class="back-btn" onclick="goIdx()">&#8592; Works</button>
+    <button class="back-btn" onclick="goBack('light')">&#8592; Works</button>
     <span class="back-proj-title">Light</span>
   </div>
   <div class="proj-header">
     <div>
       <h1>Light</h1>
-      <p class="proj-sub"><strong>Kyoto, Japan</strong><br>School Festival / Pavilion<br>Design & Build — Art club 'noir' (Group)</p>
+      <p class="proj-sub"><strong>Kyoto, Japan</strong><br>School Festival / Pavilion<br>Design & Build — K.Kawakami (Group)</p>
     </div>
     <div class="proj-year-big">2019</div>
   </div>
   <div class="proj-body">
     <p class="proj-text-en">The art club 'noir' designed and constructed a mock-up stall at the school festival. The theme of 'Light' gave form to an architectural structure covered with a roof made of cloth and wire.<br><br>I felt the difficulty and satisfaction of creating something together with fellow students, and remember the excitement of seeing the completed building used by visitors. I learned the importance of cooperation, precision, and accurate communication.</p>
     <p class="proj-text-ja">アートクラブ「noir」が学祭で設計・施工したモックアップ。「光」というテーマが布とワイヤーで作られた屋根の建築構造に形を与えた。仲間と共に作り上げる難しさと満足感、完成した建物が使われる瞬間の興奮を忘れられない。</p>
+    
     <div class="gallery">
-    <!-- To add images: place file in images/ folder, then copy a block
+    <!-- ADD IMAGES: place file in images/ folder
          Full:  <div class="g-full"><img src="images/FILE.jpg" alt=""><p class="caption">Caption</p></div>
          Half:  <div class="g-half"><img src="images/A.jpg" alt=""><img src="images/B.jpg" alt=""></div><p class="caption">Caption</p> -->
     <div class="g-half"><img src="images/lt_02.jpg" alt="" loading="lazy"><img src="images/lt_03.jpg" alt="" loading="lazy"></div><p class="caption">Plan & model / Night detail</p>
@@ -654,6 +670,21 @@ function goProj(id) {
   if (pg) pg.classList.add('active');
   document.documentElement.scrollTop = 0;
   document.body.scrollTop = 0;
+}
+
+function goBack(fromId) {
+  // Return to works list, scroll so the item that was clicked is visible
+  var pages = document.querySelectorAll('.page');
+  for (var i = 0; i < pages.length; i++) pages[i].classList.remove('active');
+  document.getElementById('index-page').classList.add('active');
+  initFade();
+  // Scroll to the cover item
+  requestAnimationFrame(function() {
+    var el = document.getElementById('cover-' + fromId);
+    if (el) {
+      el.scrollIntoView({ behavior: 'instant', block: 'center' });
+    }
+  });
 }
 
 function goIdx() {
@@ -691,7 +722,6 @@ var obs = new IntersectionObserver(function(entries) {
     if (e.isIntersecting) { e.target.classList.add('in'); obs.unobserve(e.target); }
   });
 }, { threshold: 0.04 });
-
 function initFade() {
   document.querySelectorAll('#index-page .fade').forEach(function(el) {
     el.classList.remove('in');
@@ -703,11 +733,14 @@ setTimeout(function() {
   document.querySelectorAll('#index-page .fade').forEach(function(el) { el.classList.add('in'); });
 }, 80);
 
-// Contact form
+// Contact form — show confirmation message
 var cf = document.getElementById('contact-form');
 if (cf) {
   cf.addEventListener('submit', function(e) {
     e.preventDefault();
+    var btn = cf.querySelector('.btn-send');
+    btn.textContent = 'Sending...';
+    btn.disabled = true;
     fetch(cf.action, {
       method: 'POST',
       body: new FormData(cf),
@@ -717,8 +750,15 @@ if (cf) {
         cf.reset();
         var ok = document.getElementById('form-ok');
         if (ok) ok.style.display = 'block';
+        btn.textContent = 'Sent';
+      } else {
+        btn.textContent = 'Send';
+        btn.disabled = false;
       }
-    }).catch(function() {});
+    }).catch(function() {
+      btn.textContent = 'Send';
+      btn.disabled = false;
+    });
   });
 }
 </script>
