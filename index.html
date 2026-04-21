@@ -44,24 +44,33 @@ nav {
 .site-header h1 { font-size: clamp(24px, 3vw, 38px); font-weight: 400; line-height: 1.2; margin-bottom: .75rem; letter-spacing: -.01em; }
 .bio { font-size: 14px; color: var(--muted); line-height: 1.85; max-width: 480px; font-weight: 300; }
 
-/* WORKS LIST */
-.works-list { border-top: 1px solid var(--line); }
-.work-item { border-bottom: 1px solid var(--line); }
+/* WORKS LIST — Narisada style: image left, meta right, generous padding */
+.works-list { padding: 0 2.5rem; }
+.work-item {
+  display: grid;
+  grid-template-columns: 42% 1fr;
+  gap: 3rem;
+  align-items: start;
+  padding: 3rem 0;
+  border-bottom: 1px solid var(--line);
+  cursor: pointer;
+}
+.work-item:first-child { border-top: 1px solid var(--line); }
 .work-img-btn {
   display: block; width: 100%; border: none; background: none; padding: 0;
   cursor: pointer; overflow: hidden; text-align: left;
 }
 .work-img-btn img {
-  width: 100%; aspect-ratio: 16/10; object-fit: cover; display: block;
+  width: 100%; aspect-ratio: 4/3; object-fit: cover; display: block;
   transition: transform .7s cubic-bezier(.4,0,.2,1);
 }
 .work-img-btn:hover img { transform: scale(1.02); }
-.work-meta { padding: 1.1rem 2.5rem 1.6rem; display: grid; grid-template-columns: 1fr auto; gap: 1rem; align-items: start; }
-.work-title { font-size: clamp(17px, 2.2vw, 26px); font-weight: 400; letter-spacing: -.01em; margin-bottom: .3rem; }
-.work-details { font-size: 12px; color: var(--muted); line-height: 2; font-weight: 300; }
+.work-meta { padding: 0; display: flex; flex-direction: column; justify-content: flex-start; padding-top: .25rem; }
+.work-title { font-size: clamp(16px, 1.8vw, 24px); font-weight: 400; letter-spacing: -.01em; margin-bottom: .75rem; line-height: 1.3; }
+.work-details { font-size: 12px; color: var(--muted); line-height: 2.1; font-weight: 300; }
 .work-details strong { color: var(--ink); font-weight: 400; }
-.work-year { font-size: 22px; color: var(--subtle); font-weight: 300; flex-shrink: 0; text-align: right; }
-.work-tag { display: inline-block; font-size: 10px; letter-spacing: .08em; text-transform: uppercase; padding: 3px 8px; border: 1px solid var(--line); color: var(--muted); margin-top: .5rem; margin-right: 4px; border-radius: 2px; }
+.work-year { font-size: 13px; color: var(--subtle); font-weight: 300; margin-top: 1.25rem; letter-spacing: .04em; }
+.work-tag { display: inline-block; font-size: 10px; letter-spacing: .08em; text-transform: uppercase; padding: 3px 8px; border: 1px solid var(--line); color: var(--muted); margin-top: .75rem; margin-right: 4px; border-radius: 2px; }
 
 /* PROJECT PAGE */
 .proj-hero { width: 100%; overflow: hidden; background: #e8e5e0; margin-top: 60px; }
@@ -145,10 +154,7 @@ footer { padding: 1.5rem 2.5rem; border-top: 1px solid var(--line); display: fle
 .fade { opacity: 0; transform: translateY(12px); transition: opacity .6s ease, transform .6s ease; }
 .fade.in { opacity: 1; transform: none; }
 
-/* DESKTOP: cover images 0.8x, left-aligned */
-@media (min-width: 769px) {
-  .work-item { padding-right: 20%; }
-}
+/* desktop layout handled in base styles */
 
 /* TABLET */
 @media (max-width: 1024px) and (min-width: 769px) {
@@ -164,9 +170,10 @@ footer { padding: 1.5rem 2.5rem; border-top: 1px solid var(--line); display: fle
   .nav-links { gap: 1rem; }
   .nav-links li:nth-child(3) { display: none; }
   .site-header { padding: 6.5rem 1.25rem 2rem; }
-  .work-item { padding-right: 0; }
-  .work-meta { padding: .9rem 1.25rem 1.25rem; grid-template-columns: 1fr; }
-  .work-year { font-size: 18px; text-align: left; }
+  .works-list { padding: 0 1.25rem; }
+  .work-item { grid-template-columns: 1fr; gap: 1rem; padding: 2rem 0; }
+  .work-meta { padding: 0; }
+  .work-year { font-size: 13px; }
   .proj-hero { margin-top: 54px; }
   .proj-hero img { max-height: 55vw; }
   .back-bar { top: 54px; padding: .5rem 1.25rem; }
@@ -200,7 +207,7 @@ footer { padding: 1.5rem 2.5rem; border-top: 1px solid var(--line); display: fle
   </header>
 
   <main class="works-list fade">
-<div class="work-item">
+<div class="work-item" onclick="goProj(\'thesis\')">
   <button class="work-img-btn" onclick="goProj('thesis')" aria-label="View Architecture that Mirrors Nature">
     <img src="images/cover_thesis.jpg" alt="Architecture that Mirrors Nature" loading="lazy">
   </button>
@@ -213,7 +220,7 @@ footer { padding: 1.5rem 2.5rem; border-top: 1px solid var(--line); display: fle
     <div class="work-year">2026</div>
   </div>
 </div>
-<div class="work-item">
+<div class="work-item" onclick="goProj(\'ephemeral\')">
   <button class="work-img-btn" onclick="goProj('ephemeral')" aria-label="View The Ephemeral House">
     <img src="images/cover_ephemeral.jpg" alt="The Ephemeral House" loading="lazy">
   </button>
@@ -226,7 +233,7 @@ footer { padding: 1.5rem 2.5rem; border-top: 1px solid var(--line); display: fle
     <div class="work-year">2024</div>
   </div>
 </div>
-<div class="work-item">
+<div class="work-item" onclick="goProj(\'kide\')">
   <button class="work-img-btn" onclick="goProj('kide')" aria-label="View KIDE">
     <img src="images/cover_kide.jpg" alt="KIDE" loading="lazy">
   </button>
@@ -239,7 +246,7 @@ footer { padding: 1.5rem 2.5rem; border-top: 1px solid var(--line); display: fle
     <div class="work-year">2024</div>
   </div>
 </div>
-<div class="work-item">
+<div class="work-item" onclick="goProj(\'window\')">
   <button class="work-img-btn" onclick="goProj('window')" aria-label="View WINDOW-SCOPE">
     <img src="images/cover_window.jpg" alt="WINDOW-SCOPE" loading="lazy">
   </button>
@@ -252,7 +259,7 @@ footer { padding: 1.5rem 2.5rem; border-top: 1px solid var(--line); display: fle
     <div class="work-year">2025</div>
   </div>
 </div>
-<div class="work-item">
+<div class="work-item" onclick="goProj(\'bird\')">
   <button class="work-img-btn" onclick="goProj('bird')" aria-label="View Bird Station">
     <img src="images/cover_bird.jpg" alt="Bird Station" loading="lazy">
   </button>
@@ -265,7 +272,7 @@ footer { padding: 1.5rem 2.5rem; border-top: 1px solid var(--line); display: fle
     <div class="work-year">2022</div>
   </div>
 </div>
-<div class="work-item">
+<div class="work-item" onclick="goProj(\'solar\')">
   <button class="work-img-btn" onclick="goProj('solar')" aria-label="View Solar Ring">
     <img src="images/cover_solar.jpg" alt="Solar Ring" loading="lazy">
   </button>
@@ -278,7 +285,7 @@ footer { padding: 1.5rem 2.5rem; border-top: 1px solid var(--line); display: fle
     <div class="work-year">2021</div>
   </div>
 </div>
-<div class="work-item">
+<div class="work-item" onclick="goProj(\'machiya\')">
   <button class="work-img-btn" onclick="goProj('machiya')" aria-label="View Re-thinking Machiya Ruins">
     <img src="images/cover_machiya.jpg" alt="Re-thinking Machiya Ruins" loading="lazy">
   </button>
@@ -291,7 +298,7 @@ footer { padding: 1.5rem 2.5rem; border-top: 1px solid var(--line); display: fle
     <div class="work-year">2022</div>
   </div>
 </div>
-<div class="work-item">
+<div class="work-item" onclick="goProj(\'hotel\')">
   <button class="work-img-btn" onclick="goProj('hotel')" aria-label="View Hotel a la carte">
     <img src="images/cover_hotel.jpg" alt="Hotel a la carte" loading="lazy">
   </button>
@@ -304,7 +311,7 @@ footer { padding: 1.5rem 2.5rem; border-top: 1px solid var(--line); display: fle
     <div class="work-year">2022</div>
   </div>
 </div>
-<div class="work-item">
+<div class="work-item" onclick="goProj(\'light\')">
   <button class="work-img-btn" onclick="goProj('light')" aria-label="View Light">
     <img src="images/cover_light.jpg" alt="Light" loading="lazy">
   </button>
