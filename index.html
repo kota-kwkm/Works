@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Kota Kawakami — Architecture</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&family=EB+Garamond:ital,wght@0,400;0,500;1,400;1,500&display=swap" rel="stylesheet">
 <style>
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 :root {
@@ -15,6 +15,8 @@
   --line: rgba(26,25,23,.10);
   --paper: #faf8f5;
   --sans: 'DM Sans', system-ui, sans-serif;
+  --serif: 'EB Garamond', Georgia, serif;
+  --accent: #2a2825;
 }
 html { scroll-behavior: smooth; }
 body { font-family: var(--sans); background: var(--paper); color: var(--ink); -webkit-font-smoothing: antialiased; }
@@ -28,8 +30,9 @@ nav {
   background: rgba(250,248,245,.95); backdrop-filter: blur(10px);
   border-bottom: 1px solid var(--line);
 }
-.nav-name { font-size: 13px; letter-spacing: .08em; text-transform: uppercase; cursor: pointer; }
+.nav-name { cursor: pointer; display: flex; align-items: center; }
 .nav-name:hover { opacity: .6; }
+.nav-logo { height: 22px; width: auto; display: block; }
 .nav-links { display: flex; gap: 2rem; list-style: none; }
 .nav-links a { font-size: 11px; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); cursor: pointer; transition: color .2s; }
 .nav-links a:hover { color: var(--ink); }
@@ -40,8 +43,10 @@ nav {
 
 /* INDEX HEADER */
 .site-header { padding: 9rem 2.5rem 3rem; max-width: 820px; }
-.tagline { font-size: 11px; letter-spacing: .14em; text-transform: uppercase; color: var(--subtle); margin-bottom: 1rem; }
-.site-header h1 { font-size: clamp(24px, 3vw, 38px); font-weight: 400; line-height: 1.2; margin-bottom: .75rem; letter-spacing: -.01em; }
+.tagline { font-size: 10px; letter-spacing: .2em; text-transform: uppercase; color: var(--subtle); margin-bottom: 1.25rem; display: flex; align-items: center; gap: .75rem; }
+.tagline::before { content: ''; display: block; width: 24px; height: 1px; background: var(--subtle); }
+.site-header h1 { font-family: var(--serif); font-size: clamp(28px, 3.5vw, 48px); font-weight: 400; line-height: 1.15; margin-bottom: .75rem; letter-spacing: -.01em; font-style: italic; }
+.site-header h1 em { font-style: normal; color: var(--muted); }
 .bio { font-size: 14px; color: var(--muted); line-height: 1.85; max-width: 480px; font-weight: 300; }
 
 /* WORKS LIST — image left, meta right */
@@ -66,10 +71,11 @@ nav {
 }
 .work-img-btn:hover img, .work-item:hover .work-img-btn img { transform: scale(1.02); }
 .work-meta { padding: 0; display: flex; flex-direction: column; justify-content: flex-start; padding-top: .25rem; }
-.work-title { font-size: clamp(16px, 1.8vw, 24px); font-weight: 400; letter-spacing: -.01em; margin-bottom: .75rem; line-height: 1.3; }
+.work-title { font-family: var(--serif); font-size: clamp(18px, 2vw, 28px); font-weight: 400; letter-spacing: -.01em; margin-bottom: .75rem; line-height: 1.3; transition: opacity .2s; }
+.work-item:hover .work-title { opacity: .6; }
 .work-details { font-size: 12px; color: var(--muted); line-height: 2.1; font-weight: 300; }
 .work-details strong { color: var(--ink); font-weight: 400; }
-.work-year { font-size: 13px; color: var(--subtle); font-weight: 300; margin-top: 1.25rem; letter-spacing: .04em; }
+.work-year { font-family: var(--serif); font-size: 15px; color: var(--subtle); font-weight: 400; margin-top: 1.25rem; letter-spacing: .02em; }
 .work-tag { display: inline-block; font-size: 10px; letter-spacing: .08em; text-transform: uppercase; padding: 3px 8px; border: 1px solid var(--line); color: var(--muted); margin-top: .75rem; margin-right: 4px; border-radius: 2px; }
 
 /* PROJECT PAGE */
@@ -91,10 +97,10 @@ nav {
 .back-btn:hover { color: var(--ink); }
 .back-proj-title { font-size: 11px; color: var(--subtle); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; max-width: 50vw; }
 .proj-header { padding: 1.75rem 2.5rem; display: grid; grid-template-columns: 1fr auto; gap: 2rem; border-bottom: 1px solid var(--line); }
-.proj-header h1 { font-size: clamp(20px, 3.2vw, 38px); font-weight: 400; line-height: 1.15; letter-spacing: -.01em; margin-bottom: .6rem; }
+.proj-header h1 { font-family: var(--serif); font-size: clamp(22px, 3.5vw, 44px); font-weight: 400; line-height: 1.15; letter-spacing: -.01em; margin-bottom: .6rem; font-style: italic; }
 .proj-sub { font-size: 12px; color: var(--muted); line-height: 2.1; font-weight: 300; }
 .proj-sub strong { color: var(--ink); font-weight: 400; }
-.proj-year-big { font-size: 44px; color: var(--subtle); font-weight: 300; flex-shrink: 0; line-height: 1; padding-top: .3rem; }
+.proj-year-big { font-family: var(--serif); font-size: 52px; color: var(--subtle); font-weight: 400; flex-shrink: 0; line-height: 1; padding-top: .2rem; font-style: italic; }
 .proj-body { padding: 2.5rem 2.5rem 5rem; max-width: 1200px; }
 .proj-text-en { font-size: 14px; color: var(--muted); line-height: 1.9; font-weight: 300; max-width: 640px; margin-bottom: 1rem; }
 .proj-text-ja { font-size: 13px; color: var(--subtle); line-height: 1.95; font-weight: 300; max-width: 640px; padding-top: 1rem; border-top: 1px solid var(--line); margin-bottom: 2rem; }
@@ -124,7 +130,7 @@ nav {
 
 /* ABOUT */
 .about-wrap { padding: 5rem 2.5rem; border-top: 1px solid var(--line); }
-.about-wrap h2 { font-size: 26px; font-weight: 400; margin-bottom: 2rem; letter-spacing: -.01em; }
+.about-wrap h2 { font-family: var(--serif); font-size: 32px; font-weight: 400; margin-bottom: 2rem; letter-spacing: -.01em; font-style: italic; }
 .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; max-width: 900px; }
 .about-bio { font-size: 14px; color: var(--muted); line-height: 1.9; font-weight: 300; margin-bottom: 1.5rem; }
 .info-block { margin-bottom: 1.75rem; }
@@ -138,7 +144,7 @@ nav {
 
 /* CONTACT */
 .contact-wrap { padding: 5rem 2.5rem; border-top: 1px solid var(--line); background: #f2efe9; }
-.contact-wrap h2 { font-size: 26px; font-weight: 400; margin-bottom: 2rem; letter-spacing: -.01em; }
+.contact-wrap h2 { font-family: var(--serif); font-size: 32px; font-weight: 400; margin-bottom: 2rem; letter-spacing: -.01em; font-style: italic; }
 .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; max-width: 900px; }
 .contact-info { font-size: 13px; color: var(--muted); line-height: 2.1; font-weight: 300; }
 .contact-info a:hover { color: var(--ink); }
@@ -190,12 +196,42 @@ footer { padding: 1.5rem 2.5rem; border-top: 1px solid var(--line); display: fle
   .about-grid, .contact-grid { grid-template-columns: 1fr; gap: 2.5rem; }
   footer { flex-direction: column; gap: .75rem; padding: 1.25rem; text-align: center; }
 }
+
+/* NAV SCROLL SHRINK */
+nav { transition: padding .3s ease, box-shadow .3s ease; }
+nav.scrolled { padding-top: .7rem; padding-bottom: .7rem; box-shadow: 0 1px 20px rgba(0,0,0,.06); }
+
+/* Image skeleton */
+.work-img-btn img, .proj-hero img, .g-full img, .g-half img, .g-third img {
+  background: #e8e6e1;
+}
+/* Page transition fade */
+.page.active { animation: pageFadeIn .35s ease; }
+@keyframes pageFadeIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
+
+/* Coop block refinement */
+.coop-block { border-top: 1px solid var(--line); padding-top: 1.25rem; margin-bottom: 2.5rem; max-width: 640px; }
+.coop-label { font-size: 10px; letter-spacing: .18em; text-transform: uppercase; color: var(--subtle); margin-bottom: .9rem; display: block; }
+.coop-row { font-size: 12px; color: var(--muted); line-height: 1.9; font-weight: 300; }
+.coop-key { color: var(--ink); }
+
+/* Bio text link */
+.contact-info a { border-bottom: 1px solid var(--line); padding-bottom: 1px; transition: border-color .2s; }
+.contact-info a:hover { border-color: var(--ink); }
+
+/* Nav logo size tweak */
+.nav-logo { height: 20px; }
+
+/* Work item subtle left border on hover */
+.work-item { border-left: 2px solid transparent; padding-left: 0; transition: border-color .3s; margin-left: -2px; }
+.work-item:hover { border-left-color: var(--ink); padding-left: .75rem; }
+
 </style>
 </head>
 <body>
 
 <nav>
-  <span class="nav-name" onclick="goIdx()">Kota Kawakami</span>
+  <span class="nav-name" onclick="goIdx()" aria-label="Kota Kawakami"><img src="data:image/png;base64,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" alt="KAKM logo" class="nav-logo"></span>
   <ul class="nav-links">
     <li><a onclick="goIdx()">Works</a></li>
     <li><a onclick="goSec('about')">About</a></li>
@@ -207,7 +243,6 @@ footer { padding: 1.5rem 2.5rem; border-top: 1px solid var(--line); display: fle
 
   <header class="site-header fade">
     <p class="tagline">Architecture that Mirrors Nature</p>
-    <h1>Architecture,<br>Space &amp; Installation.</h1>
     <p class="bio">Exploring the relationship between natural environment, local industry, and architecture — designing spaces that transcend scale. Based in Kyoto.</p>
   </header>
 
@@ -366,7 +401,7 @@ footer { padding: 1.5rem 2.5rem; border-top: 1px solid var(--line); display: fle
   </section>
 
   <footer>
-    <span class="fc">&#169; 2026 Kota Kawakami</span>
+    <span class="fc">&#169; 2026 Kota Kawakami &nbsp;·&nbsp; 9 Projects</span>
     <div class="fl">
       <a href="#">Instagram</a>
       <a href="#">Archinect</a>
@@ -752,6 +787,15 @@ initFade();
 setTimeout(function() {
   document.querySelectorAll('#index-page .fade').forEach(function(el) { el.classList.add('in'); });
 }, 80);
+
+// Nav shrink on scroll
+window.addEventListener('scroll', function() {
+  var nav = document.querySelector('nav');
+  if (nav) {
+    if (window.scrollY > 40) nav.classList.add('scrolled');
+    else nav.classList.remove('scrolled');
+  }
+}, { passive: true });
 
 // Contact form — show confirmation message
 var cf = document.getElementById('contact-form');
