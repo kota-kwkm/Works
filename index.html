@@ -32,7 +32,11 @@ nav {
 }
 .nav-name { cursor: pointer; display: flex; align-items: center; }
 .nav-name:hover { opacity: .6; }
-.nav-logo { height: 22px; width: auto; display: block; }
+.nav-logo {
+  display: flex; align-items: center; gap: .65rem;
+  cursor: pointer; transition: opacity .2s;
+  background: none; border: none; padding: 0;
+}
 .nav-links { display: flex; gap: 2rem; list-style: none; }
 .nav-links a { font-size: 11px; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); cursor: pointer; transition: color .2s; }
 .nav-links a:hover { color: var(--ink); }
@@ -220,18 +224,38 @@ nav.scrolled { padding-top: .7rem; padding-bottom: .7rem; box-shadow: 0 1px 20px
 .contact-info a:hover { border-color: var(--ink); }
 
 /* Nav logo size tweak */
-.nav-logo { height: 20px; }
+.nav-logo {
+  display: flex; align-items: center; gap: .65rem;
+  cursor: pointer; transition: opacity .2s;
+  background: none; border: none; padding: 0;
+}
 
 /* Work item subtle left border on hover */
 .work-item { border-left: 2px solid transparent; padding-left: 0; transition: border-color .3s; margin-left: -2px; }
 .work-item:hover { border-left-color: var(--ink); padding-left: .75rem; }
 
+.nav-logo {
+  display: flex; align-items: center; gap: .65rem;
+  cursor: pointer; transition: opacity .2s;
+  background: none; border: none; padding: 0;
+}
+.nav-logo:hover { opacity: .55; }
+.logo-mark { color: var(--ink); flex-shrink: 0; }
+.logo-text {
+  font-size: 12px; letter-spacing: .15em; font-weight: 500;
+  text-transform: uppercase; color: var(--ink); line-height: 1;
+}
+
+.logo-name { font-size: 15px; letter-spacing: .16em; font-weight: 400; text-transform: uppercase; color: var(--ink); line-height: 1; }
+
+.logo-img { height: 20px; width: auto; display: block; }
+.logo-name { font-size: 15px; letter-spacing: .16em; font-weight: 400; text-transform: uppercase; color: var(--ink); line-height: 1; }
 </style>
 </head>
 <body>
 
 <nav>
-  <span class="nav-name" onclick="goIdx()" aria-label="Kota Kawakami"><img src="data:image/png;base64,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" alt="KAKM logo" class="nav-logo"></span>
+  <span class="nav-logo" onclick="goIdx()"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAHsAAAAcCAIAAADOVFfKAAAI/0lEQVR42tVaW2xTRxo+M+f4HtuEJcEsJAQkhJQsZesATYMJgUBZrhGscgM1NzWOKugC2yYGLUL7UG0TZxNoFyHZCwGygMJy3dKCuJMohBrvvtFQaAQIocKmJHbOJTi2Z84+DFjexHHs45OHzsN58LFmvvnmm+//558DRFGk5GsIIZqmqV9mwxhDCCeoc1EUAQAURTEURZ04caK3t1etVmMsgX0RAAgh4DguJSWluLh46tSpFEUBAMgYPM87HI7h4WEIYSKLCyF4/fp1UVFRVlYW6Zk8Hz582N7eLhU8RVEUTUO/3z887F+5coXFYgEAEGpIe/r0aUZGhihSYb9JpPvZs2cmk4mhKKqnp8ft/o9Op8MYxw+X9vv9w8PDeXl5mzZtMplMocUkLRAIuN3/FoQhmqYT2U8QQp7nly8vCE2APAcGBu7c6dbpkiSAJ+RyHGcyTa2srMzNzQ2nm0j+0qVLZrM5JydH8g4gs3758uXx48d37drFUBSl0WiSkpLiZRwAAADkec5kMpWXf5iXtyR874T/TafTAQATZ5yiKIZhRvzOMExSUpIExkNa2bBhfWVlhcFgiMgUhLTT+Xez2cwwzOjZxcg4hPDQoVaPZwBCyJDFDLW44Pp8viVLLFVVlVOmTMEYj9iP4f5I3iYYMzDGo3sQRTFe8ASn1+tNTU3dtm2rxbI4iomr1ZonT562t58qL/+QzEJCbLhzp7uzszM39/03Ph7vToQQchw3eXLyxx/XLlu2TJaYk/h6xCvt/PylVVWVycnJhMex8COEDAbDxYvfLFiQnZmZGddMyZ7weDxHjhxRq9Vkgky8cAOBAM/zixcvrq6uTElJiQ43droRQhOXJ4RLm2XZlJSUbdu2EhuMkUEAgMPhtNsbFQpF7N5C/OTIkaOvXvUrlcr4GA9JOzk52Wr9qKCgQK50CgAQDCKDQS8IPEWBiZb20qV5VVUVkyf/KnatYCxqNJrHj5+0t5+qqChHCNM0iN1Pbt/uMBqNPM+/CUgxwkUIsSybk5NjtzcUFBRgLJIFTJxuhJBSqdi7d09mZubQ0JDsSgcA0DTNcWxSkm7nzh2ffvpHQjeEMHZTRgjp9fqvv7744MEDmobjxgyyD7xeb2tra8hPYmL8LVxOrVZ/8snW3bttqampGGMIAQAy6BFCODQ0tHlzWXp6enl5uVarRQgDIKe0g0HEsqzFYrHbG/Pzl5LwK2FdyXydTqff7w9lMtEZP3r02M8/vwr5yfiMh6T93nuL7PaGlStXiqI80g5PsRcuXLBmzepgMDhzZnpZWQnPcxDS8kmb0+k0O3dur6v7jCRUcUl7hEtoNJre3senTv0TQhiFcTLK3bvf3bp1W6/XI4T+L50dAy4FIc1xvNFoqK6uWrXqA9kPwcRPdDpdTc1HhH2M8bp16+7dc3//fY9Wq5VwookU4XOrq6vkivDEWy5c+NeiRQvnzp0bkRCi7sHBwcOHW1Uq1eiFgWNwgb1ez8KF2Y2NDatWfSCvtEMCFwR+y5bN06ZNC0GHENbWWlUqVSJ0k4RErVZt3/4Hm62e0C1Z2hG9xeEY01swFgEAx4619fX1jfCTyIwDADDGWq2mru6zPXv+NG2aKcrRJkE/yc7OXr36d+F0Y4zT0tJKS0s4jpNWEQMA+P3+/PylLS3NBQXLJbt2dG959OjH06fPEMAj3tI0dLlcN27cHO0nY2qc7AuVSjVxeTFCSKvV1tTUjFhIMocNG9bPn/+OIAiSmVIoFEqlcoLwkzPR+fMXHj16RNN0iHTCG8tyhw+3RlR3ZMZFUaRpmueHPv/8L01NTa9e9RMWZDwQEoFv2VI2ffqvI1ohhNBqtSqVSgneIoqiUqm8evXajh07u7ruEDNJxKPGEg3G2Ol0BgKBkLcQxtva2l68+G9EB4+mcYahjUZjV1d3fb2to6NDRtwQQp4XzGbzmjVrxqIbYzxzZnpJSbE0bxFF0Wg0chzf1PTX/fu/9Hq9sosGY6zVan/44cczZ86SvIXMxe12X7t23WCI7CfRskPShV6v53m+pWVfc3PLwMBA4rgBoBBCGo3aaq2JEhjIQIWFG+bN+400b0EIkZrizZu36urqu7vvyi52hJDBoD937nxvby9ByHHcoUOHo/jJ+Pn4W9z6jo7OujpbZ2dngrghpHme37y5dMaM6ePmmjRN19ZaFQqFtOGIaAwGg9fL2u32r7762+DgoLxiJwHJ4XAGAgEIYVvbP3766UUUP4npzBnCzXFcc3NLS8s+j8cjDTeEUBCEd9/97dq1a8elmwyRkZFRXFwkOW8holEoGJ0u6fr1G/X1trt3v5NR7MRbenoeXLp0+f79+1euXDUYDFH8JI66Skjst2931NXZurq6JOBGCKlUKqu1JkaXIP1v3FiYlZWVSL0lJJqBAU9jo/3AgQMsy8oldnImOnv23L59+0fUTxJiPBw3y7JNTc3xRiSapnmeLysrSUtLi71ASlEUTTO1tVZy/5IgNQqFQqfTXb16rb7e5nLdk0vsEEK/38/zQowgYby4wyKSrbu7OxbcENKCIMyf/8769evjKhWQFZ09e1ZR0e9Zlk3wK4G3ojH29w988UXDwYMHOY5LXOwkKYz9ThFK3qRer9dubxo3Ir2txypj95NI3rIxMzNTEGSo5YbEfvnylfp6m9vtlkXssa8ZpN7eNsTVRFFUqVR6veHmzVs2226Xy0VwRygjQMjzfGlpcXp6uoRa2JtvPBimtraGYejRvEgAT/pMTk7u7/c0NDQ6HM4ocUJC/9HHZSiK8vl8giCQ4CuhSvf8+fO9e/+8YkVBRUV5amrqiEspQRDmzcsqLCyUXHqEECKEZs2atWnTRo5jR7wNBoOCIFCUFJESPKdPn3G5XNXV1bm574+uIPn9fkEQGIYeNwkZ9xrA5/O9YXzOnDmiSMUYakfvJwAgAKCvr+/kyZNlZWUjSFer1VZroqGP7KrS0pL+/v6Q8EmbNGlSdrZZrdZIA09RgKZpn8/37bffYIwsFkuof/KcMWP6ggVmaR/zhG+U4WHf7NmzKYqS+QY9GAyO/qTkl9ICgYBCoZjoUf4HZomWV23DmVEAAAAASUVORK5CYII=" alt="Kota Kawakami" class="logo-img"><span class="logo-name">KOTA KAWAKAMI</span></span>
   <ul class="nav-links">
     <li><a onclick="goIdx()">Works</a></li>
     <li><a onclick="goSec('about')">About</a></li>
