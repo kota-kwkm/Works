@@ -25,47 +25,31 @@ button { font-family: var(--sans); }
 /* NAV */
 nav {
   position: fixed; top: 0; left: 0; right: 0; z-index: 300;
-  display: flex; align-items: center; justify-content: space-between;
-  padding: 1.1rem 2.5rem 1.1rem 3.25rem;
+  display: grid; grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  padding: 1.1rem 2.5rem;
   background: rgba(250,248,245,.96); backdrop-filter: blur(12px);
   border-bottom: 1px solid var(--line);
   transition: padding .3s ease, box-shadow .3s ease;
 }
 nav.scrolled { padding-top: .7rem; padding-bottom: .7rem; box-shadow: 0 1px 20px rgba(0,0,0,.06); }
 .nav-logo { display: flex; align-items: center; cursor: pointer; background: none; border: none; padding: 0; transition: opacity .2s; }
+.nav-center-name {
+  font-size: 11px; letter-spacing: .22em; font-weight: 400;
+  text-transform: uppercase; color: var(--ink);
+  background: none; border: none; cursor: pointer;
+  text-align: center; padding: 0;
+  transition: opacity .2s;
+}
+.nav-center-name:hover { opacity: .45; }
 .nav-logo:hover { opacity: .55; }
 .logo-img { height: 22px; width: auto; display: block; }
-.nav-links { display: flex; gap: 2rem; list-style: none; }
+.nav-links { display: flex; gap: 2rem; list-style: none; justify-content: flex-end; }
 .nav-links a { font-size: 11px; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); cursor: pointer; transition: color .2s; }
 .nav-links a:hover { color: var(--ink); }
 
 /* VERTICAL NAME — Avanto style */
-.vert-name {
-  /* Sits just to the left of the nav logo — rotated upward */
-  position: fixed;
-  left: 0;
-  top: 0;
-  bottom: 0;
-  width: 2rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 400;
-  pointer-events: none;
-}
-.vert-name span {
-  display: block;
-  white-space: nowrap;
-  font-size: 8.5px;
-  letter-spacing: .26em;
-  text-transform: uppercase;
-  color: var(--subtle);
-  font-weight: 400;
-  writing-mode: vertical-rl;
-  text-orientation: mixed;
-  transform: rotate(180deg);   /* read bottom→top like Avanto */
-}
-@media (max-width: 1100px) { .vert-name { display: none; } }
+
 
 /* PAGES */
 .page { display: none; }
@@ -122,7 +106,7 @@ nav.scrolled { padding-top: .7rem; padding-bottom: .7rem; box-shadow: 0 1px 20px
 .proj-sub { font-size: 12px; color: var(--muted); line-height: 2.1; font-weight: 300; }
 .proj-sub strong { color: var(--ink); font-weight: 400; }
 .proj-year-big { font-family: var(--serif); font-size: 52px; color: var(--subtle); font-weight: 400; flex-shrink: 0; line-height: 1; padding-top: .2rem; font-style: italic; }
-.proj-body { padding: 3rem clamp(2rem, 10vw, 10rem) 7rem; }
+.proj-body { padding: 3rem clamp(3rem, 22vw, 26rem) 7rem; }
 .proj-text-en { font-size: 14px; color: var(--muted); line-height: 1.9; font-weight: 300; max-width: 640px; margin-bottom: 1rem; }
 .proj-text-ja { font-size: 13px; color: var(--subtle); line-height: 1.95; font-weight: 300; max-width: 640px; padding-top: 1rem; border-top: 1px solid var(--line); margin-bottom: 2.5rem; }
 .coop-block { margin-bottom: 2.5rem; border-top: 1px solid var(--line); padding-top: 1.25rem; max-width: 640px; }
@@ -229,11 +213,11 @@ footer { padding: 1.5rem 2.5rem; border-top: 1px solid var(--line); display: fle
 @media (max-width: 1024px) and (min-width: 769px) {
   nav, footer, .works-list, .about-wrap, .contact-wrap { padding-left: 1.75rem; padding-right: 1.75rem; }
   .site-header { padding: 8rem 1.75rem 2.5rem; }
-  .proj-header, .proj-body, .back-bar { padding-left: 1.75rem; padding-right: 1.75rem; }
+  .proj-header, .back-bar { padding-left: 1.75rem; padding-right: 1.75rem; }
 }
 /* MOBILE */
 @media (max-width: 768px) {
-  nav { padding: .9rem 1.25rem; }
+  nav { padding: .9rem 1.25rem; grid-template-columns: auto 1fr auto; }
   .nav-links { gap: 1rem; }
   .nav-links li:nth-child(3) { display: none; }
   .site-header { padding: 6.5rem 1.25rem 2rem; }
@@ -244,7 +228,7 @@ footer { padding: 1.5rem 2.5rem; border-top: 1px solid var(--line); display: fle
   .back-bar { top: 54px; padding: .5rem 1.25rem; }
   .proj-header { padding: 1.1rem 1.25rem 1.25rem; grid-template-columns: 1fr; }
   .proj-year-big { display: none; }
-  .proj-body { padding: 1.5rem 1.25rem 3.5rem; }
+  .proj-body { padding: 1.5rem 1.5rem 3.5rem; }
   .g-row-3 { grid-template-columns: 1fr 1fr; }
   .g-row-2, .g-row-3, .g-row-wide-narrow, .g-row-narrow-wide { grid-template-columns: 1fr; gap: .75rem; }
   .about-wrap, .contact-wrap { padding: 3.5rem 1.25rem; }
@@ -256,12 +240,11 @@ footer { padding: 1.5rem 2.5rem; border-top: 1px solid var(--line); display: fle
 </head>
 <body>
 
-<div class="vert-name"><span>KOTA KAWAKAMI</span></div>
-
 <nav id="main-nav">
   <button class="nav-logo" onclick="goIdx()">
     <img src="images/logo.png" alt="Kota Kawakami" class="logo-img">
   </button>
+  <button class="nav-center-name" onclick="goIdx()">KOTA KAWAKAMI</button>
   <ul class="nav-links">
     <li><a onclick="goIdx()">Works</a></li>
     <li><a onclick="goSec('about')">About</a></li>
