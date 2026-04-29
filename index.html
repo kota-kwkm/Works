@@ -26,7 +26,7 @@ button { font-family: var(--sans); }
 nav {
   position: fixed; top: 0; left: 0; right: 0; z-index: 300;
   display: flex; align-items: center; justify-content: space-between;
-  padding: 1.1rem 2.5rem;
+  padding: 1.1rem 2.5rem 1.1rem 3.25rem;
   background: rgba(250,248,245,.96); backdrop-filter: blur(12px);
   border-bottom: 1px solid var(--line);
   transition: padding .3s ease, box-shadow .3s ease;
@@ -41,15 +41,29 @@ nav.scrolled { padding-top: .7rem; padding-bottom: .7rem; box-shadow: 0 1px 20px
 
 /* VERTICAL NAME — Avanto style */
 .vert-name {
+  /* Sits just to the left of the nav logo — rotated upward */
   position: fixed;
-  left: 2.4rem; top: 50%;
-  transform: translateY(-50%) rotate(-90deg);
-  transform-origin: center center;
-  z-index: 100;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 400;
   pointer-events: none;
+}
+.vert-name span {
+  display: block;
   white-space: nowrap;
-  font-size: 9px; letter-spacing: .24em; text-transform: uppercase;
-  color: var(--subtle); font-weight: 400;
+  font-size: 8.5px;
+  letter-spacing: .26em;
+  text-transform: uppercase;
+  color: var(--subtle);
+  font-weight: 400;
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+  transform: rotate(180deg);   /* read bottom→top like Avanto */
 }
 @media (max-width: 1100px) { .vert-name { display: none; } }
 
@@ -108,7 +122,7 @@ nav.scrolled { padding-top: .7rem; padding-bottom: .7rem; box-shadow: 0 1px 20px
 .proj-sub { font-size: 12px; color: var(--muted); line-height: 2.1; font-weight: 300; }
 .proj-sub strong { color: var(--ink); font-weight: 400; }
 .proj-year-big { font-family: var(--serif); font-size: 52px; color: var(--subtle); font-weight: 400; flex-shrink: 0; line-height: 1; padding-top: .2rem; font-style: italic; }
-.proj-body { padding: 3rem 2.5rem 7rem; }
+.proj-body { padding: 3rem clamp(2rem, 10vw, 10rem) 7rem; }
 .proj-text-en { font-size: 14px; color: var(--muted); line-height: 1.9; font-weight: 300; max-width: 640px; margin-bottom: 1rem; }
 .proj-text-ja { font-size: 13px; color: var(--subtle); line-height: 1.95; font-weight: 300; max-width: 640px; padding-top: 1rem; border-top: 1px solid var(--line); margin-bottom: 2.5rem; }
 .coop-block { margin-bottom: 2.5rem; border-top: 1px solid var(--line); padding-top: 1.25rem; max-width: 640px; }
@@ -119,56 +133,40 @@ nav.scrolled { padding-top: .7rem; padding-bottom: .7rem; box-shadow: 0 1px 20px
 /* GALLERY — Avanto style: natural proportions, generous spacing */
 .gallery-wrap {
   width: 100%;
-  margin-top: 3rem;
+  margin-top: 3.5rem;
 }
-/* Single full-width image */
-.g-row-1 {
-  margin-bottom: 2rem;
-}
-.g-row-1 .g-img {
-  width: 100%;
-  display: block;
-}
-/* Two images side by side */
+/* ── Row types ── */
+.g-row-1 { margin-bottom: 3rem; }
+.g-row-1 .g-img { width: 100%; display: block; }
+
 .g-row-2 {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 1rem;
-  margin-bottom: 2rem;
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 1.25rem; margin-bottom: 3rem;
 }
-/* Three images side by side */
 .g-row-3 {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  gap: 1rem;
-  margin-bottom: 2rem;
+  display: grid; grid-template-columns: 1fr 1fr 1fr;
+  gap: 1.25rem; margin-bottom: 3rem;
 }
-/* Wide + narrow (2:1 split) */
 .g-row-wide-narrow {
-  display: grid;
-  grid-template-columns: 2fr 1fr;
-  gap: 1rem;
-  margin-bottom: 2rem;
+  display: grid; grid-template-columns: 2fr 1fr;
+  gap: 1.25rem; margin-bottom: 3rem;
 }
-/* Narrow + wide (1:2 split) */
 .g-row-narrow-wide {
-  display: grid;
-  grid-template-columns: 1fr 2fr;
-  gap: 1rem;
-  margin-bottom: 2rem;
+  display: grid; grid-template-columns: 1fr 2fr;
+  gap: 1.25rem; margin-bottom: 3rem;
 }
+/* ── Image base ── */
 .g-img {
-  display: block;
-  width: 100%;
-  height: auto;  /* CRITICAL: preserve natural aspect ratio */
+  display: block; width: 100%; height: auto;
   cursor: zoom-in;
-  transition: opacity .25s ease;
+  transition: opacity .3s ease;
   background: #e8e6e1;
 }
-.g-img:hover { opacity: .92; }
+.g-img:hover { opacity: .88; }
 .g-caption {
-  font-size: 10px; letter-spacing: .08em; text-transform: uppercase;
-  color: var(--subtle); margin-top: .5rem; font-weight: 300;
+  font-size: 10px; letter-spacing: .09em; text-transform: uppercase;
+  color: var(--subtle); margin-top: .6rem; font-weight: 300;
+  line-height: 1.6;
 }
 
 /* LIGHTBOX */
@@ -247,6 +245,7 @@ footer { padding: 1.5rem 2.5rem; border-top: 1px solid var(--line); display: fle
   .proj-header { padding: 1.1rem 1.25rem 1.25rem; grid-template-columns: 1fr; }
   .proj-year-big { display: none; }
   .proj-body { padding: 1.5rem 1.25rem 3.5rem; }
+  .g-row-3 { grid-template-columns: 1fr 1fr; }
   .g-row-2, .g-row-3, .g-row-wide-narrow, .g-row-narrow-wide { grid-template-columns: 1fr; gap: .75rem; }
   .about-wrap, .contact-wrap { padding: 3.5rem 1.25rem; }
   .about-grid, .contact-grid { grid-template-columns: 1fr; gap: 2.5rem; }
@@ -257,7 +256,7 @@ footer { padding: 1.5rem 2.5rem; border-top: 1px solid var(--line); display: fle
 </head>
 <body>
 
-<div class="vert-name">KOTA KAWAKAMI</div>
+<div class="vert-name"><span>KOTA KAWAKAMI</span></div>
 
 <nav id="main-nav">
   <button class="nav-logo" onclick="goIdx()">
@@ -475,43 +474,57 @@ footer { padding: 1.5rem 2.5rem; border-top: 1px solid var(--line); display: fle
       <p class="coop-row"><span class="coop-key">Photographs</span> — K.Masuda, R.Toyama, S.Kurisu, S.Sasaki, Kyoto Design Lab</p>
     </div>
     <div class="gallery-wrap" data-gallery="thesis">
+      <!-- 1col full -->
       <div class="g-row-1"><img class="g-img" src="images/th_new_08.jpg" alt="" loading="lazy" data-src="images/th_new_08.jpg"><p class="g-caption">Exterior rendering — site path</p></div>
-      <div class="g-row-2">
+      <!-- 3col -->
+      <div class="g-row-3">
         <div><img class="g-img" src="images/th_new_01.jpg" alt="" loading="lazy" data-src="images/th_new_01.jpg"></div>
         <div><img class="g-img" src="images/th_new_02.jpg" alt="" loading="lazy" data-src="images/th_new_02.jpg"></div>
-      </div><p class="g-caption">Exhibition — Tokyo Architecture Collection 2026 / Physical model 1:30</p>
-      <div class="g-row-1"><img class="g-img" src="images/th_01.jpg" alt="" loading="lazy" data-src="images/th_01.jpg"><p class="g-caption">Exhibition overview</p></div>
+        <div><img class="g-img" src="images/th_01.jpg" alt="" loading="lazy" data-src="images/th_01.jpg"></div>
+      </div><p class="g-caption">Exhibition — Tokyo Architecture Collection 2026 / Physical model 1:30 / Exhibition overview</p>
+      <!-- 1col full -->
+      <div class="g-row-1"><img class="g-img" src="images/th_new_03.jpg" alt="" loading="lazy" data-src="images/th_new_03.jpg"><p class="g-caption">Interior — timber structure</p></div>
+      <!-- 2col -->
       <div class="g-row-2">
         <div><img class="g-img" src="images/th_02.jpg" alt="" loading="lazy" data-src="images/th_02.jpg"></div>
         <div><img class="g-img" src="images/th_new_04.jpg" alt="" loading="lazy" data-src="images/th_new_04.jpg"></div>
       </div><p class="g-caption">Physical model / Concrete column detail</p>
-      <div class="g-row-1"><img class="g-img" src="images/th_new_03.jpg" alt="" loading="lazy" data-src="images/th_new_03.jpg"><p class="g-caption">Interior — timber structure</p></div>
+      <!-- 2col -->
       <div class="g-row-2">
         <div><img class="g-img" src="images/th_new_05.jpg" alt="" loading="lazy" data-src="images/th_new_05.jpg"></div>
         <div><img class="g-img" src="images/th_new_06.jpg" alt="" loading="lazy" data-src="images/th_new_06.jpg"></div>
       </div><p class="g-caption">Model detail — roof</p>
+      <!-- 1col full -->
       <div class="g-row-1"><img class="g-img" src="images/th_new_09.jpg" alt="" loading="lazy" data-src="images/th_new_09.jpg"><p class="g-caption">Timber joint — offcut material study</p></div>
-      <div class="g-row-2">
+      <!-- 3col -->
+      <div class="g-row-3">
         <div><img class="g-img" src="images/th_03.jpg" alt="" loading="lazy" data-src="images/th_03.jpg"></div>
         <div><img class="g-img" src="images/th_04.jpg" alt="" loading="lazy" data-src="images/th_04.jpg"></div>
-      </div><p class="g-caption">Interior detail</p>
-      <div class="g-row-2">
         <div><img class="g-img" src="images/th_new_16.jpg" alt="" loading="lazy" data-src="images/th_new_16.jpg"></div>
+      </div><p class="g-caption">Interior detail / Material samples</p>
+      <!-- 2col -->
+      <div class="g-row-2">
         <div><img class="g-img" src="images/th_new_17.jpg" alt="" loading="lazy" data-src="images/th_new_17.jpg"></div>
-      </div><p class="g-caption">Material samples — concrete × timber offcut</p>
+        <div><img class="g-img" src="images/th_new_18.jpg" alt="" loading="lazy" data-src="images/th_new_18.jpg"></div>
+      </div><p class="g-caption">Material display / Fieldwork — Tanaka Sawmill</p>
+      <!-- 1col full -->
       <div class="g-row-1"><img class="g-img" src="images/th_plan.jpg" alt="" loading="lazy" data-src="images/th_plan.jpg"><p class="g-caption">Floor plan 1:50</p></div>
+      <!-- 3col sections -->
       <div class="g-row-3">
         <div><img class="g-img" src="images/th_sectionA.jpg" alt="" loading="lazy" data-src="images/th_sectionA.jpg"></div>
         <div><img class="g-img" src="images/th_sectionB.jpg" alt="" loading="lazy" data-src="images/th_sectionB.jpg"></div>
         <div><img class="g-img" src="images/th_sectionC.jpg" alt="" loading="lazy" data-src="images/th_sectionC.jpg"></div>
       </div><p class="g-caption">Section A / B / C — 1:50</p>
+      <!-- 1col full -->
       <div class="g-row-1"><img class="g-img" src="images/th_10.jpg" alt="" loading="lazy" data-src="images/th_10.jpg"><p class="g-caption">Detail drawings 1:10</p></div>
-      <div class="g-row-1"><img class="g-img" src="images/th_12.jpg" alt="" loading="lazy" data-src="images/th_12.jpg"><p class="g-caption">Section model</p></div>
+      <!-- 2col -->
       <div class="g-row-2">
-        <div><img class="g-img" src="images/th_new_18.jpg" alt="" loading="lazy" data-src="images/th_new_18.jpg"></div>
+        <div><img class="g-img" src="images/th_12.jpg" alt="" loading="lazy" data-src="images/th_12.jpg"></div>
         <div><img class="g-img" src="images/th_new_19.jpg" alt="" loading="lazy" data-src="images/th_new_19.jpg"></div>
-      </div><p class="g-caption">Fieldwork — Tanaka Sawmill, Keihoku</p>
+      </div><p class="g-caption">Section model / Timber yard</p>
+      <!-- 1col full -->
       <div class="g-row-1"><img class="g-img" src="images/th_new_pdf.jpg" alt="" loading="lazy" data-src="images/th_new_pdf.jpg"><p class="g-caption">Offcut research</p></div>
+      <!-- 2col -->
       <div class="g-row-2">
         <div><img class="g-img" src="images/th_13.jpg" alt="" loading="lazy" data-src="images/th_13.jpg"></div>
         <div><img class="g-img" src="images/th_14.jpg" alt="" loading="lazy" data-src="images/th_14.jpg"></div>
@@ -564,35 +577,42 @@ footer { padding: 1.5rem 2.5rem; border-top: 1px solid var(--line); display: fle
     <p class="proj-text-en">An outdoor performance stage built in the forests of Kuhmo, Finland, as part of an international wood construction program. KIDE — meaning "crystal" in Finnish — draws its geometry from the crystalline structure of ice and timber joints, creating a stage that belongs to both the landscape and the act of gathering.</p>
     <p class="proj-text-ja">フィンランド・クフモの森の中に建てられた野外ステージ。国際木材構法プログラムの一環として制作された。フィンランド語で「結晶」を意味するKIDEは、氷と木材の接合部の結晶構造からジオメトリーを導き、風景と人々の集いの場に帰属するステージを創り出している。</p>
     <div class="gallery-wrap" data-gallery="kide">
+      <!-- 1col -->
       <div class="g-row-1"><img class="g-img" src="images/kd_01.jpg" alt="" loading="lazy" data-src="images/kd_01.jpg"><p class="g-caption">Completed structure</p></div>
-      <div class="g-row-2">
+      <!-- 3col -->
+      <div class="g-row-3">
         <div><img class="g-img" src="images/kd_02.jpg" alt="" loading="lazy" data-src="images/kd_02.jpg"></div>
         <div><img class="g-img" src="images/kd_03.jpg" alt="" loading="lazy" data-src="images/kd_03.jpg"></div>
-      </div><p class="g-caption">Forest context / Structure detail</p>
-      <div class="g-row-2">
         <div><img class="g-img" src="images/kd_04.jpg" alt="" loading="lazy" data-src="images/kd_04.jpg"></div>
-        <div><img class="g-img" src="images/kd_05.jpg" alt="" loading="lazy" data-src="images/kd_05.jpg"></div>
-      </div><p class="g-caption">Timber joint / Construction</p>
+      </div><p class="g-caption">Forest context / Structure detail / Timber joint</p>
+      <!-- 1col -->
       <div class="g-row-1"><img class="g-img" src="images/kd_06.jpg" alt="" loading="lazy" data-src="images/kd_06.jpg"><p class="g-caption">Interior — stage view</p></div>
+      <!-- 2col -->
       <div class="g-row-2">
+        <div><img class="g-img" src="images/kd_05.jpg" alt="" loading="lazy" data-src="images/kd_05.jpg"></div>
         <div><img class="g-img" src="images/kd_07.jpg" alt="" loading="lazy" data-src="images/kd_07.jpg"></div>
+      </div><p class="g-caption">Construction / Roof detail</p>
+      <!-- 3col -->
+      <div class="g-row-3">
         <div><img class="g-img" src="images/kd_08.jpg" alt="" loading="lazy" data-src="images/kd_08.jpg"></div>
-      </div><p class="g-caption">Roof detail / Column base</p>
-      <div class="g-row-2">
         <div><img class="g-img" src="images/kd_09.jpg" alt="" loading="lazy" data-src="images/kd_09.jpg"></div>
         <div><img class="g-img" src="images/kd_10.jpg" alt="" loading="lazy" data-src="images/kd_10.jpg"></div>
-      </div><p class="g-caption">Canopy / Workshop</p>
-      <div class="g-row-1"><img class="g-img" src="images/kd_11.jpg" alt="" loading="lazy" data-src="images/kd_11.jpg"><p class="g-caption">Assembly</p></div>
+      </div><p class="g-caption">Column base / Canopy from below / Workshop</p>
+      <!-- 1col -->
       <div class="g-row-1"><img class="g-img" src="images/kd_12.jpg" alt="" loading="lazy" data-src="images/kd_12.jpg"><p class="g-caption">Night view</p></div>
+      <!-- 2col -->
       <div class="g-row-2">
+        <div><img class="g-img" src="images/kd_11.jpg" alt="" loading="lazy" data-src="images/kd_11.jpg"></div>
         <div><img class="g-img" src="images/kd_13.jpg" alt="" loading="lazy" data-src="images/kd_13.jpg"></div>
-        <div><img class="g-img" src="images/kd_14.jpg" alt="" loading="lazy" data-src="images/kd_14.jpg"></div>
-      </div><p class="g-caption">Landscape / Structural node</p>
+      </div><p class="g-caption">Assembly / Landscape</p>
+      <!-- 3col -->
       <div class="g-row-3">
+        <div><img class="g-img" src="images/kd_14.jpg" alt="" loading="lazy" data-src="images/kd_14.jpg"></div>
         <div><img class="g-img" src="images/kd_15.jpg" alt="" loading="lazy" data-src="images/kd_15.jpg"></div>
         <div><img class="g-img" src="images/kd_16.jpg" alt="" loading="lazy" data-src="images/kd_16.jpg"></div>
-        <div><img class="g-img" src="images/kd_17.jpg" alt="" loading="lazy" data-src="images/kd_17.jpg"></div>
-      </div><p class="g-caption">Site / Team / Elevation</p>
+      </div><p class="g-caption">Structural node / Site / Team</p>
+      <!-- 1col -->
+      <div class="g-row-1"><img class="g-img" src="images/kd_17.jpg" alt="" loading="lazy" data-src="images/kd_17.jpg"><p class="g-caption">Elevation</p></div>
     </div>
   </div>
 </div>
