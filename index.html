@@ -32,13 +32,26 @@ nav {
   transition: padding .3s ease, box-shadow .3s ease;
 }
 nav.scrolled { padding-top: .7rem; padding-bottom: .7rem; box-shadow: 0 1px 20px rgba(0,0,0,.06); }
-.nav-logo { display: flex; align-items: center; gap: .65rem; cursor: pointer; background: none; border: none; padding: 0; transition: opacity .2s; }
+.nav-logo { display: flex; align-items: center; cursor: pointer; background: none; border: none; padding: 0; transition: opacity .2s; }
 .nav-logo:hover { opacity: .55; }
-.logo-img { height: 20px; width: auto; display: block; }
-.logo-name { font-size: 15px; letter-spacing: .16em; font-weight: 400; text-transform: uppercase; color: var(--ink); line-height: 1; }
+.logo-img { height: 22px; width: auto; display: block; }
 .nav-links { display: flex; gap: 2rem; list-style: none; }
 .nav-links a { font-size: 11px; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); cursor: pointer; transition: color .2s; }
 .nav-links a:hover { color: var(--ink); }
+
+/* VERTICAL NAME — Avanto style */
+.vert-name {
+  position: fixed;
+  left: 2.4rem; top: 50%;
+  transform: translateY(-50%) rotate(-90deg);
+  transform-origin: center center;
+  z-index: 100;
+  pointer-events: none;
+  white-space: nowrap;
+  font-size: 9px; letter-spacing: .24em; text-transform: uppercase;
+  color: var(--subtle); font-weight: 400;
+}
+@media (max-width: 1100px) { .vert-name { display: none; } }
 
 /* PAGES */
 .page { display: none; }
@@ -95,7 +108,7 @@ nav.scrolled { padding-top: .7rem; padding-bottom: .7rem; box-shadow: 0 1px 20px
 .proj-sub { font-size: 12px; color: var(--muted); line-height: 2.1; font-weight: 300; }
 .proj-sub strong { color: var(--ink); font-weight: 400; }
 .proj-year-big { font-family: var(--serif); font-size: 52px; color: var(--subtle); font-weight: 400; flex-shrink: 0; line-height: 1; padding-top: .2rem; font-style: italic; }
-.proj-body { padding: 2.5rem 2.5rem 5rem; }
+.proj-body { padding: 3rem 2.5rem 7rem; }
 .proj-text-en { font-size: 14px; color: var(--muted); line-height: 1.9; font-weight: 300; max-width: 640px; margin-bottom: 1rem; }
 .proj-text-ja { font-size: 13px; color: var(--subtle); line-height: 1.95; font-weight: 300; max-width: 640px; padding-top: 1rem; border-top: 1px solid var(--line); margin-bottom: 2.5rem; }
 .coop-block { margin-bottom: 2.5rem; border-top: 1px solid var(--line); padding-top: 1.25rem; max-width: 640px; }
@@ -103,40 +116,60 @@ nav.scrolled { padding-top: .7rem; padding-bottom: .7rem; box-shadow: 0 1px 20px
 .coop-row { font-size: 12px; color: var(--muted); line-height: 1.9; font-weight: 300; }
 .coop-key { color: var(--ink); }
 
-/* MASONRY GALLERY — Avanto style */
-.masonry-gallery {
-  columns: 3;
-  column-gap: 6px;
+/* GALLERY — Avanto style: natural proportions, generous spacing */
+.gallery-wrap {
   width: 100%;
-  margin-top: 1rem;
+  margin-top: 3rem;
 }
-.m-item {
-  break-inside: avoid;
-  margin-bottom: 6px;
-  position: relative;
-  cursor: zoom-in;
-  overflow: hidden;
+/* Single full-width image */
+.g-row-1 {
+  margin-bottom: 2rem;
+}
+.g-row-1 .g-img {
+  width: 100%;
   display: block;
 }
-.m-item img {
-  width: 100%; display: block;
-  transition: transform .6s cubic-bezier(.4,0,.2,1);
+/* Two images side by side */
+.g-row-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+/* Three images side by side */
+.g-row-3 {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+/* Wide + narrow (2:1 split) */
+.g-row-wide-narrow {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+/* Narrow + wide (1:2 split) */
+.g-row-narrow-wide {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+.g-img {
+  display: block;
+  width: 100%;
+  height: auto;  /* CRITICAL: preserve natural aspect ratio */
+  cursor: zoom-in;
+  transition: opacity .25s ease;
   background: #e8e6e1;
 }
-.m-item:hover img { transform: scale(1.03); }
-.m-item.m-tall img   { aspect-ratio: 2/3;  object-fit: cover; }
-.m-item.m-sq img     { aspect-ratio: 1/1;  object-fit: cover; }
-.m-item.m-land img   { aspect-ratio: 4/3;  object-fit: cover; }
-.m-item.m-wide img   { aspect-ratio: 16/9; object-fit: cover; }
-.m-cap {
-  position: absolute; bottom: 0; left: 0; right: 0;
-  padding: .45rem .65rem;
-  font-size: 9px; letter-spacing: .07em; text-transform: uppercase;
-  color: rgba(255,255,255,.9);
-  background: linear-gradient(transparent, rgba(0,0,0,.4));
-  opacity: 0; transition: opacity .3s ease; pointer-events: none;
+.g-img:hover { opacity: .92; }
+.g-caption {
+  font-size: 10px; letter-spacing: .08em; text-transform: uppercase;
+  color: var(--subtle); margin-top: .5rem; font-weight: 300;
 }
-.m-item:hover .m-cap { opacity: 1; }
 
 /* LIGHTBOX */
 .lb {
@@ -199,7 +232,6 @@ footer { padding: 1.5rem 2.5rem; border-top: 1px solid var(--line); display: fle
   nav, footer, .works-list, .about-wrap, .contact-wrap { padding-left: 1.75rem; padding-right: 1.75rem; }
   .site-header { padding: 8rem 1.75rem 2.5rem; }
   .proj-header, .proj-body, .back-bar { padding-left: 1.75rem; padding-right: 1.75rem; }
-  .masonry-gallery { columns: 2; }
 }
 /* MOBILE */
 @media (max-width: 768px) {
@@ -215,24 +247,21 @@ footer { padding: 1.5rem 2.5rem; border-top: 1px solid var(--line); display: fle
   .proj-header { padding: 1.1rem 1.25rem 1.25rem; grid-template-columns: 1fr; }
   .proj-year-big { display: none; }
   .proj-body { padding: 1.5rem 1.25rem 3.5rem; }
-  .masonry-gallery { columns: 2; column-gap: 4px; }
-  .m-item { margin-bottom: 4px; }
+  .g-row-2, .g-row-3, .g-row-wide-narrow, .g-row-narrow-wide { grid-template-columns: 1fr; gap: .75rem; }
   .about-wrap, .contact-wrap { padding: 3.5rem 1.25rem; }
   .about-grid, .contact-grid { grid-template-columns: 1fr; gap: 2.5rem; }
   footer { flex-direction: column; gap: .75rem; padding: 1.25rem; text-align: center; }
   .lb-nav { padding: 1rem .75rem; font-size: 24px; }
 }
-@media (max-width: 480px) {
-  .masonry-gallery { columns: 1; }
-}
 </style>
 </head>
 <body>
 
+<div class="vert-name">KOTA KAWAKAMI</div>
+
 <nav id="main-nav">
   <button class="nav-logo" onclick="goIdx()">
     <img src="images/logo.png" alt="Kota Kawakami" class="logo-img">
-    <span class="logo-name">KOTA KAWAKAMI</span>
   </button>
   <ul class="nav-links">
     <li><a onclick="goIdx()">Works</a></li>
@@ -445,32 +474,48 @@ footer { padding: 1.5rem 2.5rem; border-top: 1px solid var(--line); display: fle
       <p class="coop-row"><span class="coop-key">Timber Supply</span> — Tanaka Sawmill</p>
       <p class="coop-row"><span class="coop-key">Photographs</span> — K.Masuda, R.Toyama, S.Kurisu, S.Sasaki, Kyoto Design Lab</p>
     </div>
-    <div class="masonry-gallery">
-      <div class="m-item m-wide" data-src="images/th_new_08.jpg"><img src="images/th_new_08.jpg" alt="" loading="lazy"><span class="m-cap">Exterior rendering — site path</span></div>
-      <div class="m-item m-land" data-src="images/th_new_01.jpg"><img src="images/th_new_01.jpg" alt="" loading="lazy"><span class="m-cap">Exhibition — Tokyo Architecture Collection 2026</span></div>
-      <div class="m-item m-sq" data-src="images/th_new_02.jpg"><img src="images/th_new_02.jpg" alt="" loading="lazy"><span class="m-cap">Physical model 1:30</span></div>
-      <div class="m-item m-land" data-src="images/th_01.jpg"><img src="images/th_01.jpg" alt="" loading="lazy"><span class="m-cap">Exhibition overview</span></div>
-      <div class="m-item m-tall" data-src="images/th_new_04.jpg"><img src="images/th_new_04.jpg" alt="" loading="lazy"><span class="m-cap">Concrete column detail</span></div>
-      <div class="m-item m-land" data-src="images/th_02.jpg"><img src="images/th_02.jpg" alt="" loading="lazy"><span class="m-cap">Physical model</span></div>
-      <div class="m-item m-land" data-src="images/th_new_03.jpg"><img src="images/th_new_03.jpg" alt="" loading="lazy"><span class="m-cap">Interior — timber structure</span></div>
-      <div class="m-item m-sq" data-src="images/th_new_05.jpg"><img src="images/th_new_05.jpg" alt="" loading="lazy"><span class="m-cap">Model detail</span></div>
-      <div class="m-item m-land" data-src="images/th_new_06.jpg"><img src="images/th_new_06.jpg" alt="" loading="lazy"><span class="m-cap">Roof model</span></div>
-      <div class="m-item m-wide" data-src="images/th_new_09.jpg"><img src="images/th_new_09.jpg" alt="" loading="lazy"><span class="m-cap">Timber joint — offcut material study</span></div>
-      <div class="m-item m-land" data-src="images/th_03.jpg"><img src="images/th_03.jpg" alt="" loading="lazy"><span class="m-cap">Interior detail</span></div>
-      <div class="m-item m-land" data-src="images/th_04.jpg"><img src="images/th_04.jpg" alt="" loading="lazy"><span class="m-cap">Timber detail</span></div>
-      <div class="m-item m-sq" data-src="images/th_new_16.jpg"><img src="images/th_new_16.jpg" alt="" loading="lazy"><span class="m-cap">Material samples — concrete × timber</span></div>
-      <div class="m-item m-sq" data-src="images/th_new_17.jpg"><img src="images/th_new_17.jpg" alt="" loading="lazy"><span class="m-cap">Material display</span></div>
-      <div class="m-item m-wide" data-src="images/th_plan.jpg"><img src="images/th_plan.jpg" alt="" loading="lazy"><span class="m-cap">Floor plan 1:50</span></div>
-      <div class="m-item m-land" data-src="images/th_sectionA.jpg"><img src="images/th_sectionA.jpg" alt="" loading="lazy"><span class="m-cap">Section A — 1:50</span></div>
-      <div class="m-item m-land" data-src="images/th_sectionB.jpg"><img src="images/th_sectionB.jpg" alt="" loading="lazy"><span class="m-cap">Section B — 1:50</span></div>
-      <div class="m-item m-land" data-src="images/th_sectionC.jpg"><img src="images/th_sectionC.jpg" alt="" loading="lazy"><span class="m-cap">Section C — 1:50</span></div>
-      <div class="m-item m-wide" data-src="images/th_10.jpg"><img src="images/th_10.jpg" alt="" loading="lazy"><span class="m-cap">Detail drawings 1:10</span></div>
-      <div class="m-item m-wide" data-src="images/th_12.jpg"><img src="images/th_12.jpg" alt="" loading="lazy"><span class="m-cap">Section model</span></div>
-      <div class="m-item m-land" data-src="images/th_new_18.jpg"><img src="images/th_new_18.jpg" alt="" loading="lazy"><span class="m-cap">Fieldwork — Tanaka Sawmill</span></div>
-      <div class="m-item m-land" data-src="images/th_new_19.jpg"><img src="images/th_new_19.jpg" alt="" loading="lazy"><span class="m-cap">Timber yard</span></div>
-      <div class="m-item m-wide" data-src="images/th_new_pdf.jpg"><img src="images/th_new_pdf.jpg" alt="" loading="lazy"><span class="m-cap">Offcut research</span></div>
-      <div class="m-item m-land" data-src="images/th_13.jpg"><img src="images/th_13.jpg" alt="" loading="lazy"><span class="m-cap">Drawing A</span></div>
-      <div class="m-item m-land" data-src="images/th_14.jpg"><img src="images/th_14.jpg" alt="" loading="lazy"><span class="m-cap">Drawing B</span></div>
+    <div class="gallery-wrap" data-gallery="thesis">
+      <div class="g-row-1"><img class="g-img" src="images/th_new_08.jpg" alt="" loading="lazy" data-src="images/th_new_08.jpg"><p class="g-caption">Exterior rendering — site path</p></div>
+      <div class="g-row-2">
+        <div><img class="g-img" src="images/th_new_01.jpg" alt="" loading="lazy" data-src="images/th_new_01.jpg"></div>
+        <div><img class="g-img" src="images/th_new_02.jpg" alt="" loading="lazy" data-src="images/th_new_02.jpg"></div>
+      </div><p class="g-caption">Exhibition — Tokyo Architecture Collection 2026 / Physical model 1:30</p>
+      <div class="g-row-1"><img class="g-img" src="images/th_01.jpg" alt="" loading="lazy" data-src="images/th_01.jpg"><p class="g-caption">Exhibition overview</p></div>
+      <div class="g-row-2">
+        <div><img class="g-img" src="images/th_02.jpg" alt="" loading="lazy" data-src="images/th_02.jpg"></div>
+        <div><img class="g-img" src="images/th_new_04.jpg" alt="" loading="lazy" data-src="images/th_new_04.jpg"></div>
+      </div><p class="g-caption">Physical model / Concrete column detail</p>
+      <div class="g-row-1"><img class="g-img" src="images/th_new_03.jpg" alt="" loading="lazy" data-src="images/th_new_03.jpg"><p class="g-caption">Interior — timber structure</p></div>
+      <div class="g-row-2">
+        <div><img class="g-img" src="images/th_new_05.jpg" alt="" loading="lazy" data-src="images/th_new_05.jpg"></div>
+        <div><img class="g-img" src="images/th_new_06.jpg" alt="" loading="lazy" data-src="images/th_new_06.jpg"></div>
+      </div><p class="g-caption">Model detail — roof</p>
+      <div class="g-row-1"><img class="g-img" src="images/th_new_09.jpg" alt="" loading="lazy" data-src="images/th_new_09.jpg"><p class="g-caption">Timber joint — offcut material study</p></div>
+      <div class="g-row-2">
+        <div><img class="g-img" src="images/th_03.jpg" alt="" loading="lazy" data-src="images/th_03.jpg"></div>
+        <div><img class="g-img" src="images/th_04.jpg" alt="" loading="lazy" data-src="images/th_04.jpg"></div>
+      </div><p class="g-caption">Interior detail</p>
+      <div class="g-row-2">
+        <div><img class="g-img" src="images/th_new_16.jpg" alt="" loading="lazy" data-src="images/th_new_16.jpg"></div>
+        <div><img class="g-img" src="images/th_new_17.jpg" alt="" loading="lazy" data-src="images/th_new_17.jpg"></div>
+      </div><p class="g-caption">Material samples — concrete × timber offcut</p>
+      <div class="g-row-1"><img class="g-img" src="images/th_plan.jpg" alt="" loading="lazy" data-src="images/th_plan.jpg"><p class="g-caption">Floor plan 1:50</p></div>
+      <div class="g-row-3">
+        <div><img class="g-img" src="images/th_sectionA.jpg" alt="" loading="lazy" data-src="images/th_sectionA.jpg"></div>
+        <div><img class="g-img" src="images/th_sectionB.jpg" alt="" loading="lazy" data-src="images/th_sectionB.jpg"></div>
+        <div><img class="g-img" src="images/th_sectionC.jpg" alt="" loading="lazy" data-src="images/th_sectionC.jpg"></div>
+      </div><p class="g-caption">Section A / B / C — 1:50</p>
+      <div class="g-row-1"><img class="g-img" src="images/th_10.jpg" alt="" loading="lazy" data-src="images/th_10.jpg"><p class="g-caption">Detail drawings 1:10</p></div>
+      <div class="g-row-1"><img class="g-img" src="images/th_12.jpg" alt="" loading="lazy" data-src="images/th_12.jpg"><p class="g-caption">Section model</p></div>
+      <div class="g-row-2">
+        <div><img class="g-img" src="images/th_new_18.jpg" alt="" loading="lazy" data-src="images/th_new_18.jpg"></div>
+        <div><img class="g-img" src="images/th_new_19.jpg" alt="" loading="lazy" data-src="images/th_new_19.jpg"></div>
+      </div><p class="g-caption">Fieldwork — Tanaka Sawmill, Keihoku</p>
+      <div class="g-row-1"><img class="g-img" src="images/th_new_pdf.jpg" alt="" loading="lazy" data-src="images/th_new_pdf.jpg"><p class="g-caption">Offcut research</p></div>
+      <div class="g-row-2">
+        <div><img class="g-img" src="images/th_13.jpg" alt="" loading="lazy" data-src="images/th_13.jpg"></div>
+        <div><img class="g-img" src="images/th_14.jpg" alt="" loading="lazy" data-src="images/th_14.jpg"></div>
+      </div><p class="g-caption">Drawings</p>
     </div>
   </div>
 </div>
@@ -491,10 +536,12 @@ footer { padding: 1.5rem 2.5rem; border-top: 1px solid var(--line); display: fle
   </div>
   <div class="proj-body">
     <p class="proj-text-en">A spatial installation exploring the boundary between permanence and transience in domestic space. The project investigates how temporary structures can embody the qualities of home through material, light, and atmosphere.</p>
-    <div class="masonry-gallery">
-      <div class="m-item m-wide" data-src="images/ep_01.jpg"><img src="images/ep_01.jpg" alt="" loading="lazy"><span class="m-cap">Installation overview</span></div>
-      <div class="m-item m-land" data-src="images/ep_02.jpg"><img src="images/ep_02.jpg" alt="" loading="lazy"><span class="m-cap">Interior atmosphere</span></div>
-      <div class="m-item m-tall" data-src="images/ep_03.jpg"><img src="images/ep_03.jpg" alt="" loading="lazy"><span class="m-cap">Detail</span></div>
+    <div class="gallery-wrap" data-gallery="ephemeral">
+      <div class="g-row-1"><img class="g-img" src="images/ep_01.jpg" alt="" loading="lazy" data-src="images/ep_01.jpg"><p class="g-caption">Installation overview</p></div>
+      <div class="g-row-2">
+        <div><img class="g-img" src="images/ep_02.jpg" alt="" loading="lazy" data-src="images/ep_02.jpg"></div>
+        <div><img class="g-img" src="images/ep_03.jpg" alt="" loading="lazy" data-src="images/ep_03.jpg"></div>
+      </div><p class="g-caption">Interior atmosphere / Detail</p>
     </div>
   </div>
 </div>
@@ -516,24 +563,36 @@ footer { padding: 1.5rem 2.5rem; border-top: 1px solid var(--line); display: fle
   <div class="proj-body">
     <p class="proj-text-en">An outdoor performance stage built in the forests of Kuhmo, Finland, as part of an international wood construction program. KIDE — meaning "crystal" in Finnish — draws its geometry from the crystalline structure of ice and timber joints, creating a stage that belongs to both the landscape and the act of gathering.</p>
     <p class="proj-text-ja">フィンランド・クフモの森の中に建てられた野外ステージ。国際木材構法プログラムの一環として制作された。フィンランド語で「結晶」を意味するKIDEは、氷と木材の接合部の結晶構造からジオメトリーを導き、風景と人々の集いの場に帰属するステージを創り出している。</p>
-    <div class="masonry-gallery">
-      <div class="m-item m-wide" data-src="images/kd_01.jpg"><img src="images/kd_01.jpg" alt="" loading="lazy"><span class="m-cap">Completed structure</span></div>
-      <div class="m-item m-land" data-src="images/kd_02.jpg"><img src="images/kd_02.jpg" alt="" loading="lazy"><span class="m-cap">Forest context</span></div>
-      <div class="m-item m-tall" data-src="images/kd_03.jpg"><img src="images/kd_03.jpg" alt="" loading="lazy"><span class="m-cap">Structure detail</span></div>
-      <div class="m-item m-land" data-src="images/kd_04.jpg"><img src="images/kd_04.jpg" alt="" loading="lazy"><span class="m-cap">Timber joint</span></div>
-      <div class="m-item m-sq" data-src="images/kd_05.jpg"><img src="images/kd_05.jpg" alt="" loading="lazy"><span class="m-cap">Construction</span></div>
-      <div class="m-item m-wide" data-src="images/kd_06.jpg"><img src="images/kd_06.jpg" alt="" loading="lazy"><span class="m-cap">Interior — stage view</span></div>
-      <div class="m-item m-land" data-src="images/kd_07.jpg"><img src="images/kd_07.jpg" alt="" loading="lazy"><span class="m-cap">Roof detail</span></div>
-      <div class="m-item m-tall" data-src="images/kd_08.jpg"><img src="images/kd_08.jpg" alt="" loading="lazy"><span class="m-cap">Column base</span></div>
-      <div class="m-item m-land" data-src="images/kd_09.jpg"><img src="images/kd_09.jpg" alt="" loading="lazy"><span class="m-cap">Canopy from below</span></div>
-      <div class="m-item m-sq" data-src="images/kd_10.jpg"><img src="images/kd_10.jpg" alt="" loading="lazy"><span class="m-cap">Workshop</span></div>
-      <div class="m-item m-land" data-src="images/kd_11.jpg"><img src="images/kd_11.jpg" alt="" loading="lazy"><span class="m-cap">Assembly</span></div>
-      <div class="m-item m-wide" data-src="images/kd_12.jpg"><img src="images/kd_12.jpg" alt="" loading="lazy"><span class="m-cap">Night view</span></div>
-      <div class="m-item m-land" data-src="images/kd_13.jpg"><img src="images/kd_13.jpg" alt="" loading="lazy"><span class="m-cap">Landscape</span></div>
-      <div class="m-item m-tall" data-src="images/kd_14.jpg"><img src="images/kd_14.jpg" alt="" loading="lazy"><span class="m-cap">Structural node</span></div>
-      <div class="m-item m-land" data-src="images/kd_15.jpg"><img src="images/kd_15.jpg" alt="" loading="lazy"><span class="m-cap">Site</span></div>
-      <div class="m-item m-sq" data-src="images/kd_16.jpg"><img src="images/kd_16.jpg" alt="" loading="lazy"><span class="m-cap">Team</span></div>
-      <div class="m-item m-land" data-src="images/kd_17.jpg"><img src="images/kd_17.jpg" alt="" loading="lazy"><span class="m-cap">Elevation</span></div>
+    <div class="gallery-wrap" data-gallery="kide">
+      <div class="g-row-1"><img class="g-img" src="images/kd_01.jpg" alt="" loading="lazy" data-src="images/kd_01.jpg"><p class="g-caption">Completed structure</p></div>
+      <div class="g-row-2">
+        <div><img class="g-img" src="images/kd_02.jpg" alt="" loading="lazy" data-src="images/kd_02.jpg"></div>
+        <div><img class="g-img" src="images/kd_03.jpg" alt="" loading="lazy" data-src="images/kd_03.jpg"></div>
+      </div><p class="g-caption">Forest context / Structure detail</p>
+      <div class="g-row-2">
+        <div><img class="g-img" src="images/kd_04.jpg" alt="" loading="lazy" data-src="images/kd_04.jpg"></div>
+        <div><img class="g-img" src="images/kd_05.jpg" alt="" loading="lazy" data-src="images/kd_05.jpg"></div>
+      </div><p class="g-caption">Timber joint / Construction</p>
+      <div class="g-row-1"><img class="g-img" src="images/kd_06.jpg" alt="" loading="lazy" data-src="images/kd_06.jpg"><p class="g-caption">Interior — stage view</p></div>
+      <div class="g-row-2">
+        <div><img class="g-img" src="images/kd_07.jpg" alt="" loading="lazy" data-src="images/kd_07.jpg"></div>
+        <div><img class="g-img" src="images/kd_08.jpg" alt="" loading="lazy" data-src="images/kd_08.jpg"></div>
+      </div><p class="g-caption">Roof detail / Column base</p>
+      <div class="g-row-2">
+        <div><img class="g-img" src="images/kd_09.jpg" alt="" loading="lazy" data-src="images/kd_09.jpg"></div>
+        <div><img class="g-img" src="images/kd_10.jpg" alt="" loading="lazy" data-src="images/kd_10.jpg"></div>
+      </div><p class="g-caption">Canopy / Workshop</p>
+      <div class="g-row-1"><img class="g-img" src="images/kd_11.jpg" alt="" loading="lazy" data-src="images/kd_11.jpg"><p class="g-caption">Assembly</p></div>
+      <div class="g-row-1"><img class="g-img" src="images/kd_12.jpg" alt="" loading="lazy" data-src="images/kd_12.jpg"><p class="g-caption">Night view</p></div>
+      <div class="g-row-2">
+        <div><img class="g-img" src="images/kd_13.jpg" alt="" loading="lazy" data-src="images/kd_13.jpg"></div>
+        <div><img class="g-img" src="images/kd_14.jpg" alt="" loading="lazy" data-src="images/kd_14.jpg"></div>
+      </div><p class="g-caption">Landscape / Structural node</p>
+      <div class="g-row-3">
+        <div><img class="g-img" src="images/kd_15.jpg" alt="" loading="lazy" data-src="images/kd_15.jpg"></div>
+        <div><img class="g-img" src="images/kd_16.jpg" alt="" loading="lazy" data-src="images/kd_16.jpg"></div>
+        <div><img class="g-img" src="images/kd_17.jpg" alt="" loading="lazy" data-src="images/kd_17.jpg"></div>
+      </div><p class="g-caption">Site / Team / Elevation</p>
     </div>
   </div>
 </div>
@@ -554,15 +613,21 @@ footer { padding: 1.5rem 2.5rem; border-top: 1px solid var(--line); display: fle
   </div>
   <div class="proj-body">
     <p class="proj-text-en">A rest room proposal that transforms the act of pausing into a spatial experience of framing. Windows are calibrated to capture specific views of the landscape, turning the mundane into a moment of contemplation.</p>
-    <div class="masonry-gallery">
-      <div class="m-item m-wide" data-src="images/ws_01.jpg"><img src="images/ws_01.jpg" alt="" loading="lazy"><span class="m-cap">Exterior view</span></div>
-      <div class="m-item m-tall" data-src="images/ws_02.jpg"><img src="images/ws_02.jpg" alt="" loading="lazy"><span class="m-cap">Window framing</span></div>
-      <div class="m-item m-land" data-src="images/ws_03.jpg"><img src="images/ws_03.jpg" alt="" loading="lazy"><span class="m-cap">Interior</span></div>
-      <div class="m-item m-sq" data-src="images/ws_04.jpg"><img src="images/ws_04.jpg" alt="" loading="lazy"><span class="m-cap">Plan</span></div>
-      <div class="m-item m-land" data-src="images/ws_05.jpg"><img src="images/ws_05.jpg" alt="" loading="lazy"><span class="m-cap">Section</span></div>
-      <div class="m-item m-land" data-src="images/ws_06.jpg"><img src="images/ws_06.jpg" alt="" loading="lazy"><span class="m-cap">Rendering</span></div>
-      <div class="m-item m-wide" data-src="images/ws_07.jpg"><img src="images/ws_07.jpg" alt="" loading="lazy"><span class="m-cap">Perspective</span></div>
-      <div class="m-item m-land" data-src="images/ws_08.jpg"><img src="images/ws_08.jpg" alt="" loading="lazy"><span class="m-cap">Detail</span></div>
+    <div class="gallery-wrap" data-gallery="window">
+      <div class="g-row-1"><img class="g-img" src="images/ws_01.jpg" alt="" loading="lazy" data-src="images/ws_01.jpg"><p class="g-caption">Exterior view</p></div>
+      <div class="g-row-2">
+        <div><img class="g-img" src="images/ws_02.jpg" alt="" loading="lazy" data-src="images/ws_02.jpg"></div>
+        <div><img class="g-img" src="images/ws_03.jpg" alt="" loading="lazy" data-src="images/ws_03.jpg"></div>
+      </div><p class="g-caption">Window framing / Interior</p>
+      <div class="g-row-2">
+        <div><img class="g-img" src="images/ws_04.jpg" alt="" loading="lazy" data-src="images/ws_04.jpg"></div>
+        <div><img class="g-img" src="images/ws_05.jpg" alt="" loading="lazy" data-src="images/ws_05.jpg"></div>
+      </div><p class="g-caption">Plan / Section</p>
+      <div class="g-row-1"><img class="g-img" src="images/ws_06.jpg" alt="" loading="lazy" data-src="images/ws_06.jpg"><p class="g-caption">Rendering</p></div>
+      <div class="g-row-2">
+        <div><img class="g-img" src="images/ws_07.jpg" alt="" loading="lazy" data-src="images/ws_07.jpg"></div>
+        <div><img class="g-img" src="images/ws_08.jpg" alt="" loading="lazy" data-src="images/ws_08.jpg"></div>
+      </div><p class="g-caption">Perspective / Detail</p>
     </div>
   </div>
 </div>
@@ -584,17 +649,25 @@ footer { padding: 1.5rem 2.5rem; border-top: 1px solid var(--line); display: fle
   <div class="proj-body">
     <p class="proj-text-en">A diploma project proposing a new urban typology that reimagines the relationship between migratory birds and the city. Bird Station creates a hybrid ecosystem — part infrastructure, part habitat — embedded within Tokyo's rail network.</p>
     <p class="proj-text-ja">渡り鳥と都市の関係を再考し、新たな都市タイポロジーを提案する卒業設計。Bird Stationは、東京の鉄道網に埋め込まれた、インフラと生息地のハイブリッドなエコシステムを創出する。</p>
-    <div class="masonry-gallery">
-      <div class="m-item m-wide" data-src="images/bs_01.jpg"><img src="images/bs_01.jpg" alt="" loading="lazy"><span class="m-cap">Master plan</span></div>
-      <div class="m-item m-land" data-src="images/bs_02.jpg"><img src="images/bs_02.jpg" alt="" loading="lazy"><span class="m-cap">Aerial view</span></div>
-      <div class="m-item m-tall" data-src="images/bs_03.jpg"><img src="images/bs_03.jpg" alt="" loading="lazy"><span class="m-cap">Tower section</span></div>
-      <div class="m-item m-land" data-src="images/bs_04.jpg"><img src="images/bs_04.jpg" alt="" loading="lazy"><span class="m-cap">Platform level</span></div>
-      <div class="m-item m-sq" data-src="images/bs_05.jpg"><img src="images/bs_05.jpg" alt="" loading="lazy"><span class="m-cap">Model</span></div>
-      <div class="m-item m-wide" data-src="images/bs_06.jpg"><img src="images/bs_06.jpg" alt="" loading="lazy"><span class="m-cap">Interior habitat</span></div>
-      <div class="m-item m-land" data-src="images/bs_07.jpg"><img src="images/bs_07.jpg" alt="" loading="lazy"><span class="m-cap">Urban context</span></div>
-      <div class="m-item m-land" data-src="images/bs_08.jpg"><img src="images/bs_08.jpg" alt="" loading="lazy"><span class="m-cap">Detail</span></div>
-      <div class="m-item m-tall" data-src="images/bs_09.jpg"><img src="images/bs_09.jpg" alt="" loading="lazy"><span class="m-cap">Structural system</span></div>
-      <div class="m-item m-wide" data-src="images/bs_10.jpg"><img src="images/bs_10.jpg" alt="" loading="lazy"><span class="m-cap">Exhibition panel</span></div>
+    <div class="gallery-wrap" data-gallery="bird">
+      <div class="g-row-1"><img class="g-img" src="images/bs_01.jpg" alt="" loading="lazy" data-src="images/bs_01.jpg"><p class="g-caption">Master plan</p></div>
+      <div class="g-row-2">
+        <div><img class="g-img" src="images/bs_02.jpg" alt="" loading="lazy" data-src="images/bs_02.jpg"></div>
+        <div><img class="g-img" src="images/bs_03.jpg" alt="" loading="lazy" data-src="images/bs_03.jpg"></div>
+      </div><p class="g-caption">Aerial view / Tower section</p>
+      <div class="g-row-2">
+        <div><img class="g-img" src="images/bs_04.jpg" alt="" loading="lazy" data-src="images/bs_04.jpg"></div>
+        <div><img class="g-img" src="images/bs_05.jpg" alt="" loading="lazy" data-src="images/bs_05.jpg"></div>
+      </div><p class="g-caption">Platform level / Model</p>
+      <div class="g-row-1"><img class="g-img" src="images/bs_06.jpg" alt="" loading="lazy" data-src="images/bs_06.jpg"><p class="g-caption">Interior habitat</p></div>
+      <div class="g-row-2">
+        <div><img class="g-img" src="images/bs_07.jpg" alt="" loading="lazy" data-src="images/bs_07.jpg"></div>
+        <div><img class="g-img" src="images/bs_08.jpg" alt="" loading="lazy" data-src="images/bs_08.jpg"></div>
+      </div><p class="g-caption">Urban context / Detail</p>
+      <div class="g-row-2">
+        <div><img class="g-img" src="images/bs_09.jpg" alt="" loading="lazy" data-src="images/bs_09.jpg"></div>
+        <div><img class="g-img" src="images/bs_10.jpg" alt="" loading="lazy" data-src="images/bs_10.jpg"></div>
+      </div><p class="g-caption">Structural system / Exhibition panel</p>
     </div>
   </div>
 </div>
@@ -615,17 +688,25 @@ footer { padding: 1.5rem 2.5rem; border-top: 1px solid var(--line); display: fle
   </div>
   <div class="proj-body">
     <p class="proj-text-en">A solar observatory proposed for the lagoon landscape of Orbetello. The ring form traces the path of the sun across the horizon, creating a meditative space where architecture and celestial mechanics become inseparable.</p>
-    <div class="masonry-gallery">
-      <div class="m-item m-wide" data-src="images/sr_01.jpg"><img src="images/sr_01.jpg" alt="" loading="lazy"><span class="m-cap">Aerial perspective</span></div>
-      <div class="m-item m-tall" data-src="images/sr_02.jpg"><img src="images/sr_02.jpg" alt="" loading="lazy"><span class="m-cap">Interior</span></div>
-      <div class="m-item m-land" data-src="images/sr_03.jpg"><img src="images/sr_03.jpg" alt="" loading="lazy"><span class="m-cap">Lagoon context</span></div>
-      <div class="m-item m-sq" data-src="images/sr_04.jpg"><img src="images/sr_04.jpg" alt="" loading="lazy"><span class="m-cap">Plan</span></div>
-      <div class="m-item m-wide" data-src="images/sr_05.jpg"><img src="images/sr_05.jpg" alt="" loading="lazy"><span class="m-cap">Section</span></div>
-      <div class="m-item m-land" data-src="images/sr_06.jpg"><img src="images/sr_06.jpg" alt="" loading="lazy"><span class="m-cap">Sunset rendering</span></div>
-      <div class="m-item m-land" data-src="images/sr_07.jpg"><img src="images/sr_07.jpg" alt="" loading="lazy"><span class="m-cap">Light study</span></div>
-      <div class="m-item m-tall" data-src="images/sr_08.jpg"><img src="images/sr_08.jpg" alt="" loading="lazy"><span class="m-cap">Detail</span></div>
-      <div class="m-item m-land" data-src="images/sr_09.jpg"><img src="images/sr_09.jpg" alt="" loading="lazy"><span class="m-cap">Material</span></div>
-      <div class="m-item m-wide" data-src="images/sr_10.jpg"><img src="images/sr_10.jpg" alt="" loading="lazy"><span class="m-cap">Panel</span></div>
+    <div class="gallery-wrap" data-gallery="solar">
+      <div class="g-row-1"><img class="g-img" src="images/sr_01.jpg" alt="" loading="lazy" data-src="images/sr_01.jpg"><p class="g-caption">Aerial perspective</p></div>
+      <div class="g-row-2">
+        <div><img class="g-img" src="images/sr_02.jpg" alt="" loading="lazy" data-src="images/sr_02.jpg"></div>
+        <div><img class="g-img" src="images/sr_03.jpg" alt="" loading="lazy" data-src="images/sr_03.jpg"></div>
+      </div><p class="g-caption">Interior / Lagoon context</p>
+      <div class="g-row-2">
+        <div><img class="g-img" src="images/sr_04.jpg" alt="" loading="lazy" data-src="images/sr_04.jpg"></div>
+        <div><img class="g-img" src="images/sr_05.jpg" alt="" loading="lazy" data-src="images/sr_05.jpg"></div>
+      </div><p class="g-caption">Plan / Section</p>
+      <div class="g-row-1"><img class="g-img" src="images/sr_06.jpg" alt="" loading="lazy" data-src="images/sr_06.jpg"><p class="g-caption">Sunset rendering</p></div>
+      <div class="g-row-2">
+        <div><img class="g-img" src="images/sr_07.jpg" alt="" loading="lazy" data-src="images/sr_07.jpg"></div>
+        <div><img class="g-img" src="images/sr_08.jpg" alt="" loading="lazy" data-src="images/sr_08.jpg"></div>
+      </div><p class="g-caption">Light study / Detail</p>
+      <div class="g-row-2">
+        <div><img class="g-img" src="images/sr_09.jpg" alt="" loading="lazy" data-src="images/sr_09.jpg"></div>
+        <div><img class="g-img" src="images/sr_10.jpg" alt="" loading="lazy" data-src="images/sr_10.jpg"></div>
+      </div><p class="g-caption">Material / Panel</p>
     </div>
   </div>
 </div>
@@ -647,19 +728,27 @@ footer { padding: 1.5rem 2.5rem; border-top: 1px solid var(--line); display: fle
   <div class="proj-body">
     <p class="proj-text-en">A renovation study exploring the potential of deteriorated machiya townhouses in Kyoto. Rather than erasing traces of time, the project embraces ruined elements as the foundation for a new spatial language.</p>
     <p class="proj-text-ja">京都の老朽化した町家のリノベーション研究。時の痕跡を消し去るのではなく、廃墟化した要素を新たな空間言語の基盤として取り込む。</p>
-    <div class="masonry-gallery">
-      <div class="m-item m-wide" data-src="images/mc_01.jpg"><img src="images/mc_01.jpg" alt="" loading="lazy"><span class="m-cap">Exterior — existing</span></div>
-      <div class="m-item m-tall" data-src="images/mc_02.jpg"><img src="images/mc_02.jpg" alt="" loading="lazy"><span class="m-cap">Interior ruins</span></div>
-      <div class="m-item m-land" data-src="images/mc_03.jpg"><img src="images/mc_03.jpg" alt="" loading="lazy"><span class="m-cap">Proposed interior</span></div>
-      <div class="m-item m-sq" data-src="images/mc_04.jpg"><img src="images/mc_04.jpg" alt="" loading="lazy"><span class="m-cap">Detail</span></div>
-      <div class="m-item m-land" data-src="images/mc_05.jpg"><img src="images/mc_05.jpg" alt="" loading="lazy"><span class="m-cap">Plan</span></div>
-      <div class="m-item m-wide" data-src="images/mc_06.jpg"><img src="images/mc_06.jpg" alt="" loading="lazy"><span class="m-cap">Section</span></div>
-      <div class="m-item m-land" data-src="images/mc_07.jpg"><img src="images/mc_07.jpg" alt="" loading="lazy"><span class="m-cap">Model</span></div>
-      <div class="m-item m-tall" data-src="images/mc_08.jpg"><img src="images/mc_08.jpg" alt="" loading="lazy"><span class="m-cap">Courtyard</span></div>
-      <div class="m-item m-land" data-src="images/mc_09.jpg"><img src="images/mc_09.jpg" alt="" loading="lazy"><span class="m-cap">Structural</span></div>
-      <div class="m-item m-land" data-src="images/mc_10.jpg"><img src="images/mc_10.jpg" alt="" loading="lazy"><span class="m-cap">Diagram</span></div>
-      <div class="m-item m-wide" data-src="images/mc_11.jpg"><img src="images/mc_11.jpg" alt="" loading="lazy"><span class="m-cap">Panel</span></div>
-      <div class="m-item m-sq" data-src="images/mc_12.jpg"><img src="images/mc_12.jpg" alt="" loading="lazy"><span class="m-cap">Texture study</span></div>
+    <div class="gallery-wrap" data-gallery="machiya">
+      <div class="g-row-1"><img class="g-img" src="images/mc_01.jpg" alt="" loading="lazy" data-src="images/mc_01.jpg"><p class="g-caption">Exterior — existing</p></div>
+      <div class="g-row-2">
+        <div><img class="g-img" src="images/mc_02.jpg" alt="" loading="lazy" data-src="images/mc_02.jpg"></div>
+        <div><img class="g-img" src="images/mc_03.jpg" alt="" loading="lazy" data-src="images/mc_03.jpg"></div>
+      </div><p class="g-caption">Interior ruins / Proposed interior</p>
+      <div class="g-row-2">
+        <div><img class="g-img" src="images/mc_04.jpg" alt="" loading="lazy" data-src="images/mc_04.jpg"></div>
+        <div><img class="g-img" src="images/mc_05.jpg" alt="" loading="lazy" data-src="images/mc_05.jpg"></div>
+      </div><p class="g-caption">Detail / Plan</p>
+      <div class="g-row-1"><img class="g-img" src="images/mc_06.jpg" alt="" loading="lazy" data-src="images/mc_06.jpg"><p class="g-caption">Section</p></div>
+      <div class="g-row-2">
+        <div><img class="g-img" src="images/mc_07.jpg" alt="" loading="lazy" data-src="images/mc_07.jpg"></div>
+        <div><img class="g-img" src="images/mc_08.jpg" alt="" loading="lazy" data-src="images/mc_08.jpg"></div>
+      </div><p class="g-caption">Model / Courtyard</p>
+      <div class="g-row-2">
+        <div><img class="g-img" src="images/mc_09.jpg" alt="" loading="lazy" data-src="images/mc_09.jpg"></div>
+        <div><img class="g-img" src="images/mc_10.jpg" alt="" loading="lazy" data-src="images/mc_10.jpg"></div>
+      </div><p class="g-caption">Structural / Diagram</p>
+      <div class="g-row-1"><img class="g-img" src="images/mc_11.jpg" alt="" loading="lazy" data-src="images/mc_11.jpg"><p class="g-caption">Panel</p></div>
+      <div class="g-row-1"><img class="g-img" src="images/mc_12.jpg" alt="" loading="lazy" data-src="images/mc_12.jpg"><p class="g-caption">Texture study</p></div>
     </div>
   </div>
 </div>
@@ -680,15 +769,21 @@ footer { padding: 1.5rem 2.5rem; border-top: 1px solid var(--line); display: fle
   </div>
   <div class="proj-body">
     <p class="proj-text-en">A hotel competition proposal exploring the idea of customizable inhabitation. Guests assemble their own spatial program from a menu of modular room types — sleeping, bathing, dining, working — each designed as a distinct architectural element.</p>
-    <div class="masonry-gallery">
-      <div class="m-item m-wide" data-src="images/hl_01.jpg"><img src="images/hl_01.jpg" alt="" loading="lazy"><span class="m-cap">Facade</span></div>
-      <div class="m-item m-tall" data-src="images/hl_02.jpg"><img src="images/hl_02.jpg" alt="" loading="lazy"><span class="m-cap">Module system</span></div>
-      <div class="m-item m-land" data-src="images/hl_03.jpg"><img src="images/hl_03.jpg" alt="" loading="lazy"><span class="m-cap">Room interior</span></div>
-      <div class="m-item m-sq" data-src="images/hl_04.jpg"><img src="images/hl_04.jpg" alt="" loading="lazy"><span class="m-cap">Plan</span></div>
-      <div class="m-item m-wide" data-src="images/hl_05.jpg"><img src="images/hl_05.jpg" alt="" loading="lazy"><span class="m-cap">Axonometric</span></div>
-      <div class="m-item m-land" data-src="images/hl_06.jpg"><img src="images/hl_06.jpg" alt="" loading="lazy"><span class="m-cap">Section</span></div>
-      <div class="m-item m-land" data-src="images/hl_07.jpg"><img src="images/hl_07.jpg" alt="" loading="lazy"><span class="m-cap">Detail</span></div>
-      <div class="m-item m-wide" data-src="images/hl_08.jpg"><img src="images/hl_08.jpg" alt="" loading="lazy"><span class="m-cap">Panel</span></div>
+    <div class="gallery-wrap" data-gallery="hotel">
+      <div class="g-row-1"><img class="g-img" src="images/hl_01.jpg" alt="" loading="lazy" data-src="images/hl_01.jpg"><p class="g-caption">Facade</p></div>
+      <div class="g-row-2">
+        <div><img class="g-img" src="images/hl_02.jpg" alt="" loading="lazy" data-src="images/hl_02.jpg"></div>
+        <div><img class="g-img" src="images/hl_03.jpg" alt="" loading="lazy" data-src="images/hl_03.jpg"></div>
+      </div><p class="g-caption">Module system / Room interior</p>
+      <div class="g-row-2">
+        <div><img class="g-img" src="images/hl_04.jpg" alt="" loading="lazy" data-src="images/hl_04.jpg"></div>
+        <div><img class="g-img" src="images/hl_05.jpg" alt="" loading="lazy" data-src="images/hl_05.jpg"></div>
+      </div><p class="g-caption">Plan / Axonometric</p>
+      <div class="g-row-2">
+        <div><img class="g-img" src="images/hl_06.jpg" alt="" loading="lazy" data-src="images/hl_06.jpg"></div>
+        <div><img class="g-img" src="images/hl_07.jpg" alt="" loading="lazy" data-src="images/hl_07.jpg"></div>
+      </div><p class="g-caption">Section / Detail</p>
+      <div class="g-row-1"><img class="g-img" src="images/hl_08.jpg" alt="" loading="lazy" data-src="images/hl_08.jpg"><p class="g-caption">Panel</p></div>
     </div>
   </div>
 </div>
@@ -710,13 +805,17 @@ footer { padding: 1.5rem 2.5rem; border-top: 1px solid var(--line); display: fle
   <div class="proj-body">
     <p class="proj-text-en">A temporary pavilion built for a university school festival, exploring the phenomenology of filtered light. Constructed collaboratively by students, the structure uses layered translucent panels to create gradients of shadow and luminosity.</p>
     <p class="proj-text-ja">大学祭のために建てられた仮設パビリオン。学生たちが協力して建設し、半透明パネルの積層によって光と影のグラデーションを生み出す。</p>
-    <div class="masonry-gallery">
-      <div class="m-item m-wide" data-src="images/lt_01.jpg"><img src="images/lt_01.jpg" alt="" loading="lazy"><span class="m-cap">Exterior — day</span></div>
-      <div class="m-item m-tall" data-src="images/lt_02.jpg"><img src="images/lt_02.jpg" alt="" loading="lazy"><span class="m-cap">Interior light</span></div>
-      <div class="m-item m-land" data-src="images/lt_03.jpg"><img src="images/lt_03.jpg" alt="" loading="lazy"><span class="m-cap">Night view</span></div>
-      <div class="m-item m-sq" data-src="images/lt_04.jpg"><img src="images/lt_04.jpg" alt="" loading="lazy"><span class="m-cap">Panel detail</span></div>
-      <div class="m-item m-wide" data-src="images/lt_05.jpg"><img src="images/lt_05.jpg" alt="" loading="lazy"><span class="m-cap">Construction</span></div>
-      <div class="m-item m-land" data-src="images/lt_06.jpg"><img src="images/lt_06.jpg" alt="" loading="lazy"><span class="m-cap">Atmosphere</span></div>
+    <div class="gallery-wrap" data-gallery="light">
+      <div class="g-row-1"><img class="g-img" src="images/lt_01.jpg" alt="" loading="lazy" data-src="images/lt_01.jpg"><p class="g-caption">Exterior — day</p></div>
+      <div class="g-row-2">
+        <div><img class="g-img" src="images/lt_02.jpg" alt="" loading="lazy" data-src="images/lt_02.jpg"></div>
+        <div><img class="g-img" src="images/lt_03.jpg" alt="" loading="lazy" data-src="images/lt_03.jpg"></div>
+      </div><p class="g-caption">Interior light / Night view</p>
+      <div class="g-row-2">
+        <div><img class="g-img" src="images/lt_04.jpg" alt="" loading="lazy" data-src="images/lt_04.jpg"></div>
+        <div><img class="g-img" src="images/lt_05.jpg" alt="" loading="lazy" data-src="images/lt_05.jpg"></div>
+      </div><p class="g-caption">Panel detail / Construction</p>
+      <div class="g-row-1"><img class="g-img" src="images/lt_06.jpg" alt="" loading="lazy" data-src="images/lt_06.jpg"><p class="g-caption">Atmosphere</p></div>
     </div>
   </div>
 </div>
@@ -795,7 +894,8 @@ var lbIndex   = 0;
 function openLb(items, idx) {
   lbItems = items;
   lbIndex = idx;
-  lbImg.src = lbItems[lbIndex].getAttribute('data-src');
+  var src = lbItems[lbIndex].getAttribute('data-src') || lbItems[lbIndex].getAttribute('src');
+  lbImg.src = src;
   lbCounter.textContent = (lbIndex + 1) + ' / ' + lbItems.length;
   lb.classList.add('open');
   document.body.style.overflow = 'hidden';
@@ -809,7 +909,8 @@ function closeLb() {
 
 function lbMove(dir) {
   lbIndex = (lbIndex + dir + lbItems.length) % lbItems.length;
-  lbImg.src = lbItems[lbIndex].getAttribute('data-src');
+  var src = lbItems[lbIndex].getAttribute('data-src') || lbItems[lbIndex].getAttribute('src');
+  lbImg.src = src;
   lbCounter.textContent = (lbIndex + 1) + ' / ' + lbItems.length;
 }
 
@@ -827,10 +928,10 @@ document.addEventListener('keydown', function(e) {
 
 // GALLERY BINDING
 function bindGalleries() {
-  document.querySelectorAll('.masonry-gallery').forEach(function(gallery) {
-    var items = Array.from(gallery.querySelectorAll('.m-item[data-src]'));
-    items.forEach(function(item, idx) {
-      item.addEventListener('click', function() { openLb(items, idx); });
+  document.querySelectorAll('.gallery-wrap').forEach(function(gallery) {
+    var imgs = Array.from(gallery.querySelectorAll('.g-img[data-src]'));
+    imgs.forEach(function(img, idx) {
+      img.addEventListener('click', function() { openLb(imgs, idx); });
     });
   });
 }
