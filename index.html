@@ -176,7 +176,15 @@ nav.scrolled { padding-top: .7rem; padding-bottom: .7rem; box-shadow: 0 1px 20px
 }
 /* ── Row types ── */
 .g-row-1 { margin-bottom: 3rem; }
-.g-row-1 .g-img { width: 100%; display: block; }
+/* 1カラム: 画面高の85%を上限にして縦長画像が画面からはみ出さないようにする */
+.g-row-1 .g-img {
+  display: block;
+  width: auto;           /* 横幅を自動に */
+  max-width: 100%;       /* コンテナ幅を超えない */
+  max-height: 85vh;      /* 画面の85%以上に縦長にならない */
+  height: auto;
+  margin: 0 auto;        /* 中央寄せ */
+}
 
 .g-row-2 {
   display: grid; grid-template-columns: 1fr 1fr;
@@ -552,14 +560,10 @@ footer { padding: 1.5rem 2.5rem; border-top: 1px solid var(--line); display: fle
         <div><img class="g-img" src="images/th_16.jpg" alt="" loading="lazy" data-src="images/th_16.jpg"></div>
         <div><img class="g-img" src="images/th_17.jpg" alt="" loading="lazy" data-src="images/th_17.jpg"></div>
       </div>
-      <div class="g-row-2">
-        <div><img class="g-img" src="images/th_plan.jpg" alt="" loading="lazy" data-src="images/th_plan.jpg"></div>
-        <div><img class="g-img" src="images/th_18.jpg" alt="" loading="lazy" data-src="images/th_18.jpg"></div>
-      </div>
-      <div class="g-row-2">
-        <div><img class="g-img" src="images/th_sectionA.jpg" alt="" loading="lazy" data-src="images/th_sectionA.jpg"></div>
-        <div><img class="g-img" src="images/th_sectionB.jpg" alt="" loading="lazy" data-src="images/th_sectionB.jpg"></div>
-      </div>
+      <div class="g-row-1"><img class="g-img" src="images/th_plan.jpg" alt="" loading="lazy" data-src="images/th_plan.jpg"></div>
+      <div class="g-row-1"><img class="g-img" src="images/th_18.jpg" alt="" loading="lazy" data-src="images/th_18.jpg"></div>
+      <div class="g-row-1"><img class="g-img" src="images/th_sectionA.jpg" alt="" loading="lazy" data-src="images/th_sectionA.jpg"></div>
+      <div class="g-row-1"><img class="g-img" src="images/th_sectionB.jpg" alt="" loading="lazy" data-src="images/th_sectionB.jpg"></div>
       <div class="g-row-1"><img class="g-img" src="images/th_sectionC.jpg" alt="" loading="lazy" data-src="images/th_sectionC.jpg"></div>
       <div class="g-row-2">
         <div><img class="g-img" src="images/th_19.jpg" alt="" loading="lazy" data-src="images/th_19.jpg"></div>
@@ -948,10 +952,8 @@ footer { padding: 1.5rem 2.5rem; border-top: 1px solid var(--line); display: fle
         <div><img class="g-img" src="images/ms_Kide_Frame_4.jpg" alt="" loading="lazy" data-src="images/ms_Kide_Frame_4.jpg"></div>
         <div><img class="g-img" src="images/ms_Kide_1.1.jpg" alt="" loading="lazy" data-src="images/ms_Kide_1.1.jpg"></div>
       </div>
-      <div class="g-row-2">
-        <div><img class="g-img" src="images/ms_Screenshot_2026-05-12_at_19.51.44.png" alt="" loading="lazy" data-src="images/ms_Screenshot_2026-05-12_at_19.51.44.png"></div>
-        <div><img class="g-img" src="images/ms_Screenshot_2026-05-12_at_19.51.59.png" alt="" loading="lazy" data-src="images/ms_Screenshot_2026-05-12_at_19.51.59.png"></div>
-      </div>
+      <div class="g-row-1"><img class="g-img" src="images/ms_Screenshot_2026-05-12_at_19.51.44.png" alt="" loading="lazy" data-src="images/ms_Screenshot_2026-05-12_at_19.51.44.png"></div>
+      <div class="g-row-1"><img class="g-img" src="images/ms_Screenshot_2026-05-12_at_19.51.59.png" alt="" loading="lazy" data-src="images/ms_Screenshot_2026-05-12_at_19.51.59.png"></div>
       <div class="g-row-1"><img class="g-img" src="images/ms_Screenshot_2026-05-12_at_19.52.10.png" alt="" loading="lazy" data-src="images/ms_Screenshot_2026-05-12_at_19.52.10.png"></div>
       <div class="g-row-2">
         <div><img class="g-img" src="images/ms_IMG_6692.jpg" alt="" loading="lazy" data-src="images/ms_IMG_6692.jpg"></div>
@@ -962,10 +964,8 @@ footer { padding: 1.5rem 2.5rem; border-top: 1px solid var(--line); display: fle
         <div><img class="g-img" src="images/ms_Kide_Joint-10.jpg" alt="" loading="lazy" data-src="images/ms_Kide_Joint-10.jpg"></div>
         <div><img class="g-img" src="images/ms_Screenshot_2026-05-12_at_20.00.39.png" alt="" loading="lazy" data-src="images/ms_Screenshot_2026-05-12_at_20.00.39.png"></div>
       </div>
-      <div class="g-row-2">
-        <div><img class="g-img" src="images/ms_Screenshot_2026-05-12_at_20.00.59.png" alt="" loading="lazy" data-src="images/ms_Screenshot_2026-05-12_at_20.00.59.png"></div>
-        <div><img class="g-img" src="images/ms_Kide_Cube-4.jpg" alt="" loading="lazy" data-src="images/ms_Kide_Cube-4.jpg"></div>
-      </div>
+      <div class="g-row-1"><img class="g-img" src="images/ms_Screenshot_2026-05-12_at_20.00.59.png" alt="" loading="lazy" data-src="images/ms_Screenshot_2026-05-12_at_20.00.59.png"></div>
+      <div class="g-row-1"><img class="g-img" src="images/ms_Kide_Cube-4.jpg" alt="" loading="lazy" data-src="images/ms_Kide_Cube-4.jpg"></div>
       <div class="g-row-1"><img class="g-img" src="images/ms_IMG_3214.jpg" alt="" loading="lazy" data-src="images/ms_IMG_3214.jpg"></div>
       <div class="g-row-2">
         <div><img class="g-img" src="images/ms_IMG_0986.jpg" alt="" loading="lazy" data-src="images/ms_IMG_0986.jpg"></div>
