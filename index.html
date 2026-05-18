@@ -89,15 +89,17 @@ nav {
 }
 nav.scrolled { padding-top: .7rem; padding-bottom: .7rem; box-shadow: 0 1px 20px rgba(0,0,0,.06); }
 .nav-logo {
-  display: flex; flex-direction: column; align-items: flex-start;
-  gap: .35rem; cursor: pointer; background: none; border: none;
+  display: inline-flex; flex-direction: column; align-items: flex-start;
+  gap: .4rem; cursor: pointer; background: none; border: none;
   padding: 0; transition: opacity .2s;
+  width: fit-content;
 }
 .nav-logo:hover { opacity: .55; }
-.logo-img { height: 20px; width: auto; display: block; }
+.logo-img { width: 100%; height: auto; display: block; }
 .nav-logo-name {
   font-size: 9px; letter-spacing: .22em; font-weight: 400;
   text-transform: uppercase; color: var(--muted); line-height: 1;
+  width: 100%; display: block;
 }
 .nav-links { display: flex; gap: 2rem; list-style: none; justify-content: flex-end; }
 .nav-links a { font-size: 11px; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); cursor: pointer; transition: color .2s; }
